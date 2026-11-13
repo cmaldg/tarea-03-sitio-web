@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscar sin fronteras</title>
+    <meta
+      name="description"
+      content="Webstory sobre la internacionalización de los Premios Oscar (1929-2026): análisis de debut, nacionalidad de nominados y países de producción."
+    />
+    <meta property="og:title" content="Oscar sin fronteras" />
+    <meta
+      property="og:description"
+      content="Webstory sobre la internacionalización de los Premios Oscar (1929-2026): análisis de debut, nacionalidad de nominados y países de producción."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#inicio" class="brand-lockup">
+          <!-- Webstory Logo: Globe Clapperboard + Oscar Statuette (Brand Guide p.8) -->
+          <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+            <g transform="rotate(-10 26 32)">
+              <rect x="6" y="20" width="38" height="28" rx="2" fill="#3a4c9a" stroke="#C69D22" stroke-width="2" />
+              <path d="M12 28 C18 23, 24 27, 29 34 C33 39, 27 45, 19 44 C13 42, 10 35, 12 28 Z" fill="#4fa86c" opacity="0.9" />
+              <path d="M6 12 L44 6 L46 14 L8 20 Z" fill="#2c3a7a" stroke="#C69D22" stroke-width="1.8" />
+              <line x1="15" y1="11" x2="17" y2="18" stroke="#F8EFD8" stroke-width="2" />
+              <line x1="27" y1="9" x2="29" y2="16" stroke="#F8EFD8" stroke-width="2" />
+              <line x1="38" y1="7" x2="40" y2="14" stroke="#F8EFD8" stroke-width="2" />
+            </g>
+            <circle cx="45" cy="14" r="4.5" fill="#C69D22" />
+            <path d="M39 21 C39 19, 51 19, 51 21 L49 34 L48 52 L42 52 L41 34 Z" fill="#C69D22" stroke="#181818" stroke-width="1.2" />
+            <rect x="38" y="52" width="14" height="5" rx="1.5" fill="#C69D22" stroke="#181818" stroke-width="1.2" />
+          </svg>
+          <span>Oscar sin fronteras</span>
+        </a>
+
+        <nav class="header-nav" aria-label="Secciones de la historia">
+          <a href="#trayectoria-decada">Trayectoria</a>
+          <a href="#nominados-dibujos">Nominados 2026</a>
+          <a href="#podio">Países líderes</a>
+          <a href="#produccion-paises">Producción</a>
+          <a href="#cierre-jessie">Cierre</a>
+        </nav>
+
+        <a href="#podio" class="header-cta">Ver podio</a>
+      </div>
+      <div class="reading-progress" aria-hidden="true">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         HERO / SCROLL-DRIVEN CURTAINS — CLOSED WITH TITLE FIRST
+         ========================================================= -->
+    <section id="inicio" class="hero-scroll-track" aria-labelledby="hero-title">
+      <div class="hero-sticky-viewport">
+        <div id="curtainStage" class="curtain-stage">
+          <div class="stage-valance" aria-hidden="true"></div>
+          <div id="stageSpotlight" class="stage-spotlight" aria-hidden="true"></div>
+
+          <!-- Title centered over closed curtains first, glides up smoothly on scroll -->
+          <div id="heroTitleLayer" class="hero-title-layer">
+            <h1 id="hero-title" class="hero-title">Oscar sin fronteras</h1>
+          </div>
+
+          <!-- Bajada revealed progressively as curtains open on scroll -->
+          <div id="bajadaContent" class="bajada-wrapper">
+            <p class="bajada-text">
+              Últimamente la Academia ha nominado a actores y actrices extranjeros. Pero detrás de esa nominación se encontraba un patrón: un país de producción y un mismo idioma actuado. ¿Los Oscar realmente se han internacionalizado o simplemente han importado talento según sus estándares?
+            </p>
+          </div>
+
+          <!-- Scroll-driven Left & Right Velvet Curtains -->
+          <div id="curtainLeft" class="curtain-panel curtain-left" aria-hidden="true">
+            <div class="curtain-tie"></div>
+            <div class="curtain-tassel"></div>
+          </div>
+          <div id="curtainRight" class="curtain-panel curtain-right" aria-hidden="true">
+            <div class="curtain-tie"></div>
+            <div class="curtain-tassel"></div>
+          </div>
+
+          <!-- Minimalist scroll arrow icon (no button, no text) -->
+          <div id="scrollCueArrow" class="scroll-cue-arrow" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         MAIN STORY BODY — CONTINUOUS BLACK CHERRY (#670010)
+         ========================================================= -->
+    <main class="story-main">
+      <div class="story-container">
+        <!-- 1. FIRST CHART RECREATED IN BRAND PALETTE COLORS (FIRST BELOW CURTAINS) -->
+        <section id="trayectoria-decada" class="chart-showcase" aria-label="Clasificación de nominaciones a los Oscar por década">
+          <div class="chart-card">
+            <svg
+              id="chart1Svg"
+              class="chart-svg"
+              viewBox="0 0 1000 500"
+              role="img"
+              aria-label="Clasificación de nominaciones a los Oscar por década"
+            ></svg>
+            <div id="chart1Tooltip" class="chart-tooltip">
+              Pasa el cursor sobre una década para ver el desglose exacto.
+            </div>
+          </div>
+          <button
+            type="button"
+            class="chart-zoom-btn"
+            data-zoom-svg="chart1Svg"
+            data-zoom-caption="Clasificación de nominaciones a los Oscar por década"
+          >
+            Ampliar visualización
+          </button>
+
+          <div class="data-explanation">
+            <h2 class="section-subheading">¿Qué muestran los datos?</h2>
+            <p class="body-paragraph">
+              El gráfico busca revelar si los nominados a Mejor Actor-Actriz son en su mayoría estadounidense con debut en su país o extranjeros con debut en Estados Unidos. Se evidencia que en las últimas 3 décadas La Academia ha tenido más presencia extranjera. Nuestro objetivo descubrir si la industria ha aceptado el talento extranjero año tras año.
+            </p>
+          </div>
+        </section>
+
+        <!-- 2. BELOW CHART 1: STICK-FIGURE DRAWINGS (JESSIE LARGER) + LAST 10 NOMINEES (2026) -->
+        <section id="nominados-dibujos" class="winners-nominees-grid" aria-label="Ganadores y últimos 10 nominados de 2026">
+          <!-- Stick-figure Drawings (WITHOUT "WINNER" labels above them) -->
+          <div id="ganadores-2026" class="winners-stage">
+            <h2 class="winners-kicker">Ganadores última edición (2026)</h2>
+            <p class="winners-subtitle">Jessie Buckley encabeza la última edición junto a Michael B. Jordan</p>
+
+            <div class="stick-duo">
+              <!-- JESSIE BUCKLEY (LARGER, Winner 2026, Mejor actriz, Irlanda) -->
+              <button
+                type="button"
+                class="stick-card is-jessie is-selected"
+                data-winner="jessie"
+                aria-pressed="true"
+              >
+                <svg class="stick-svg" viewBox="0 0 200 265" aria-label="Dibujo a palito de Jessie Buckley con cabeza grande y bandera de Irlanda">
+                  <circle cx="100" cy="70" r="64" fill="rgba(198,157,34,0.18)" stroke="#C69D22" stroke-width="1.4" stroke-dasharray="4 4" />
+                  <path d="M74 17 L82 4 L91 14 L100 2 L109 14 L118 4 L126 17 Z" fill="#C69D22" stroke="#181818" stroke-width="1.5" />
+                  <ellipse cx="100" cy="68" rx="40" ry="43" fill="#f3cfa7" stroke="#181818" stroke-width="2.6" />
+                  <path d="M59 61 C57 32, 82 21, 103 23 C128 25, 141 43, 139 68 C136 52, 126 42, 114 40 C99 47, 77 45, 59 61 Z" fill="#ebd079" stroke="#181818" stroke-width="2.4" />
+                  <path d="M58 60 C55 74, 59 85, 66 90" fill="none" stroke="#ebd079" stroke-width="7" stroke-linecap="round" />
+                  <path d="M78 56 Q86 51 92 56" fill="none" stroke="#181818" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M108 56 Q115 51 123 56" fill="none" stroke="#181818" stroke-width="2.2" stroke-linecap="round" />
+                  <circle cx="85" cy="64" r="4" fill="#181818" />
+                  <circle cx="115" cy="64" r="4" fill="#181818" />
+                  <circle cx="86.2" cy="62.6" r="1.3" fill="#ffffff" />
+                  <circle cx="116.2" cy="62.6" r="1.3" fill="#ffffff" />
+                  <path d="M100 66 L97 77 L103 78" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" />
+                  <path d="M84 85 Q100 99 116 85" fill="#b9232c" stroke="#181818" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M89 88 Q100 92 111 88" fill="#ffffff" />
+                  <circle cx="72" cy="77" r="5" fill="rgba(220,90,90,0.35)" />
+                  <circle cx="128" cy="77" r="5" fill="rgba(220,90,90,0.35)" />
+
+                  <line x1="100" y1="111" x2="100" y2="188" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" />
+                  <path d="M82 128 L118 128 L110 163 L90 163 Z" fill="#c71f2d" stroke="#F8EFD8" stroke-width="2" />
+                  <polyline points="100,128 70,148 52,132" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="100,128 130,144 148,130" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="100,188 82,242 73,245" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="100,188 118,242 128,245" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <g transform="translate(38,91)">
+                    <circle cx="13" cy="8" r="4.5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <path d="M8.5 14 L17.5 14 L15.5 36 L10.5 36 Z" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <rect x="6" y="36" width="14" height="5.5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                  </g>
+
+                  <g transform="translate(146,84)">
+                    <line x1="2" y1="0" x2="2" y2="52" stroke="#F8EFD8" stroke-width="2.8" stroke-linecap="round" />
+                    <rect x="3" y="2" width="42" height="28" rx="1.5" stroke="#F8EFD8" stroke-width="1" fill="#ffffff" />
+                    <rect x="3" y="2" width="14" height="28" fill="#169B62" />
+                    <rect x="17" y="2" width="14" height="28" fill="#FFFFFF" />
+                    <rect x="31" y="2" width="14" height="28" fill="#FF883E" />
+                  </g>
+                </svg>
+
+                <div class="winner-meta">
+                  <p class="winner-name">Jessie Buckley</p>
+                  <p class="winner-detail">Mejor actriz · Hamnet</p>
+                  <div class="winner-flag-row">
+                    <svg width="22" height="15" viewBox="0 0 30 20" aria-hidden="true">
+                      <rect width="10" height="20" fill="#169B62" />
+                      <rect x="10" width="10" height="20" fill="#FFFFFF" />
+                      <rect x="20" width="10" height="20" fill="#FF883E" />
+                    </svg>
+                    <span>Irlanda · Ganadora</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- MICHAEL B. JORDAN (SMALLER, Winner 2026, Mejor actor, Estados Unidos) -->
+              <button
+                type="button"
+                class="stick-card is-michael"
+                data-winner="michael"
+                aria-pressed="false"
+              >
+                <svg class="stick-svg" viewBox="0 0 180 245" aria-label="Dibujo a palito de Michael B. Jordan con cabeza grande y bandera de Estados Unidos">
+                  <circle cx="90" cy="64" r="52" fill="rgba(198,157,34,0.1)" />
+                  <ellipse cx="90" cy="62" rx="34" ry="38" fill="#8b5537" stroke="#181818" stroke-width="2.4" />
+                  <path d="M57 49 C58 26, 73 20, 90 20 C107 20, 122 26, 123 49 C117 38, 106 34, 90 34 C74 34, 63 38, 57 49 Z" fill="#191615" stroke="#181818" stroke-width="2" />
+                  <path d="M71 51 Q78 47 84 51" fill="none" stroke="#181818" stroke-width="2.4" stroke-linecap="round" />
+                  <path d="M96 51 Q102 47 109 51" fill="none" stroke="#181818" stroke-width="2.4" stroke-linecap="round" />
+                  <circle cx="77" cy="58" r="3.4" fill="#181818" />
+                  <circle cx="103" cy="58" r="3.4" fill="#181818" />
+                  <circle cx="78" cy="56.8" r="1.1" fill="#ffffff" />
+                  <circle cx="104" cy="56.8" r="1.1" fill="#ffffff" />
+                  <path d="M90 59 L87 69 L94 70" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" />
+                  <path d="M60 71 C63 92, 77 101, 90 101 C103 101, 117 92, 120 71 C114 82, 105 87, 90 87 C75 87, 66 82, 60 71 Z" fill="#1c1817" />
+                  <path d="M79 77 Q90 85 101 77" fill="#ffffff" stroke="#181818" stroke-width="1.8" stroke-linecap="round" />
+
+                  <line x1="90" y1="100" x2="90" y2="168" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" />
+                  <polygon points="82,107 90,111 82,115" fill="#C69D22" />
+                  <polygon points="98,107 90,111 98,115" fill="#C69D22" />
+                  <polyline points="90,116 64,132 48,118" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="90,116 118,128 134,116" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="90,168 74,218 66,220" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="90,168 106,218 115,220" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <g transform="translate(36,80)">
+                    <circle cx="12" cy="7" r="4" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <path d="M8 13 L16 13 L14 33 L10 33 Z" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <rect x="6" y="33" width="12" height="5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                  </g>
+
+                  <g transform="translate(132,74)">
+                    <line x1="2" y1="0" x2="2" y2="46" stroke="#F8EFD8" stroke-width="2.5" stroke-linecap="round" />
+                    <rect x="3" y="2" width="36" height="24" rx="1.5" fill="#ffffff" stroke="#F8EFD8" stroke-width="1" />
+                    <rect x="3" y="2" width="36" height="3.4" fill="#B22234" />
+                    <rect x="3" y="8.8" width="36" height="3.4" fill="#B22234" />
+                    <rect x="3" y="15.6" width="36" height="3.4" fill="#B22234" />
+                    <rect x="3" y="22.4" width="36" height="3.6" fill="#B22234" />
+                    <rect x="3" y="2" width="16" height="13" fill="#3C3B6E" />
+                    <circle cx="7" cy="5.5" r="0.9" fill="#fff" />
+                    <circle cx="11" cy="5.5" r="0.9" fill="#fff" />
+                    <circle cx="15" cy="5.5" r="0.9" fill="#fff" />
+                    <circle cx="9" cy="8.5" r="0.9" fill="#fff" />
+                    <circle cx="13" cy="8.5" r="0.9" fill="#fff" />
+                    <circle cx="7" cy="11.5" r="0.9" fill="#fff" />
+                    <circle cx="11" cy="11.5" r="0.9" fill="#fff" />
+                    <circle cx="15" cy="11.5" r="0.9" fill="#fff" />
+                  </g>
+                </svg>
+
+                <div class="winner-meta">
+                  <p class="winner-name">Michael B. Jordan</p>
+                  <p class="winner-detail">Mejor actor · Sinners</p>
+                  <div class="winner-flag-row">
+                    <svg width="20" height="14" viewBox="0 0 30 20" aria-hidden="true">
+                      <rect width="30" height="20" fill="#ffffff" />
+                      <rect y="0" width="30" height="3" fill="#B22234" />
+                      <rect y="6" width="30" height="3" fill="#B22234" />
+                      <rect y="12" width="30" height="3" fill="#B22234" />
+                      <rect y="17" width="30" height="3" fill="#B22234" />
+                      <rect width="13" height="11" fill="#3C3B6E" />
+                    </svg>
+                    <span>Estados Unidos · Ganador</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div id="winnerSpotlightNote" class="winner-spotlight-note">
+              <strong>Jessie Buckley (Irlanda) — Ganadora 2026:</strong> Nacida en Killarney, Irlanda, obtuvo el Oscar a Mejor actriz por <em>Hamnet</em> (2025), película producida por <strong>Reino Unido, Estados Unidos</strong> e interpretada en <strong>Inglés</strong>.
+            </div>
+          </div>
+
+          <!-- Últimos 10 nominados (2026) -->
+          <aside id="nominados-2026" class="nominees-panel" aria-labelledby="nominees-title">
+            <div class="nominees-header">
+              <h2 id="nominees-title" class="nominees-title">Últimos nominados (2026)</h2>
+              <div class="nominees-filter" role="group" aria-label="Filtrar nominados por categoría">
+                <button type="button" class="filter-btn is-active" data-filter="all">Todos (10)</button>
+                <button type="button" class="filter-btn" data-filter="Mejor actor">Mejor actor (5)</button>
+                <button type="button" class="filter-btn" data-filter="Mejor actriz">Mejor actriz (5)</button>
+              </div>
+            </div>
+
+            <ol id="nomineesList" class="nominees-list"></ol>
+          </aside>
+        </section>
+
+        <!-- =====================================================
+             3. PODIO DE 5 LUGARES (BEFORE CHART 2)
+             ===================================================== -->
+        <section id="podio" class="podium-section" aria-labelledby="podium-title">
+          <div class="podium-intro">
+            <div>
+              <h2 id="podium-title" class="section-heading">Países con mayor presencia en la producción</h2>
+              <p class="podium-caption">
+                Los 5 países que lideran la producción de las películas nominadas en las categorías Mejor actor y Mejor actriz (1929–2026).
+              </p>
+            </div>
+          </div>
+
+          <div class="podium-stage" id="podiumStage" role="list" aria-label="Podio de 5 lugares de países de producción">
+            <!-- 4° Lugar: Canadá (18) -->
+            <div class="podium-step rank-4" role="listitem" tabindex="0" data-country="Canadá">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+                  <rect width="36" height="24" fill="#FFFFFF" />
+                  <rect width="9" height="24" fill="#D80621" />
+                  <rect x="27" width="9" height="24" fill="#D80621" />
+                  <path d="M18 5 L19.5 10 L23 9.5 L20.5 12.5 L22 14.5 L18.8 14 L18.8 18 L17.2 18 L17.2 14 L14 14.5 L15.5 12.5 L13 9.5 L16.5 10 Z" fill="#D80621" />
+                </svg>
+                <h3 class="podium-country">Canadá</h3>
+                <p class="podium-count">18 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">4°</span>
+              </div>
+            </div>
+
+            <!-- 2° Lugar: Reino Unido (116) -->
+            <div class="podium-step rank-2" role="listitem" tabindex="0" data-country="Reino Unido">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 60 40" aria-hidden="true">
+                  <rect width="60" height="40" fill="#012169" />
+                  <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="7" />
+                  <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4" />
+                  <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="11" />
+                  <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="6.5" />
+                </svg>
+                <h3 class="podium-country">Reino Unido</h3>
+                <p class="podium-count">116 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">2°</span>
+              </div>
+            </div>
+
+            <!-- 1° Lugar: Estados Unidos (619) -->
+            <div class="podium-step rank-1" role="listitem" tabindex="0" data-country="Estados Unidos">
+              <div class="podium-top-info">
+                <svg width="42" height="28" viewBox="0 0 42 28" aria-hidden="true">
+                  <rect width="42" height="28" fill="#ffffff" />
+                  <rect y="0" width="42" height="4" fill="#B22234" />
+                  <rect y="8" width="42" height="4" fill="#B22234" />
+                  <rect y="16" width="42" height="4" fill="#B22234" />
+                  <rect y="24" width="42" height="4" fill="#B22234" />
+                  <rect width="18" height="15" fill="#3C3B6E" />
+                  <circle cx="5" cy="4.5" r="1" fill="#fff" />
+                  <circle cx="9.5" cy="4.5" r="1" fill="#fff" />
+                  <circle cx="14" cy="4.5" r="1" fill="#fff" />
+                  <circle cx="7" cy="8" r="1" fill="#fff" />
+                  <circle cx="12" cy="8" r="1" fill="#fff" />
+                  <circle cx="5" cy="11.5" r="1" fill="#fff" />
+                  <circle cx="9.5" cy="11.5" r="1" fill="#fff" />
+                  <circle cx="14" cy="11.5" r="1" fill="#fff" />
+                </svg>
+                <h3 class="podium-country">Estados Unidos</h3>
+                <p class="podium-count">619 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">1°</span>
+              </div>
+            </div>
+
+            <!-- 3° Lugar: Francia (30) -->
+            <div class="podium-step rank-3" role="listitem" tabindex="0" data-country="Francia">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+                  <rect width="12" height="24" fill="#002395" />
+                  <rect x="12" width="12" height="24" fill="#FFFFFF" />
+                  <rect x="24" width="12" height="24" fill="#ED2939" />
+                </svg>
+                <h3 class="podium-country">Francia</h3>
+                <p class="podium-count">30 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">3°</span>
+              </div>
+            </div>
+
+            <!-- 5° Lugar: Italia (13) -->
+            <div class="podium-step rank-5" role="listitem" tabindex="0" data-country="Italia">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+                  <rect width="12" height="24" fill="#009246" />
+                  <rect x="12" width="12" height="24" fill="#FFFFFF" />
+                  <rect x="24" width="12" height="24" fill="#CE2B37" />
+                </svg>
+                <h3 class="podium-country">Italia</h3>
+                <p class="podium-count">13 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">5°</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="podiumDetailBar" class="podium-detail-bar">
+            <span><strong>1° Estados Unidos:</strong> 619 películas nominadas como país principal de producción.</span>
+            <span style="color: var(--golden-bronze); font-variant-numeric: tabular-nums;">77,8% del Top 5</span>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             4. SECOND CHART RECREATED IN BRAND PALETTE COLORS
+             ===================================================== -->
+        <section id="produccion-paises" class="chart2-section" aria-label="País de producción que más predomina en las películas nominadas">
+          <div class="chart2-frame">
+            <div class="chart-card">
+              <svg
+                id="chart2Svg"
+                class="chart-svg"
+                viewBox="0 0 1000 760"
+                role="img"
+                aria-label="País de producción que más predomina en las películas nominadas"
+              ></svg>
+              <div id="chart2Tooltip" class="chart-tooltip">
+                Pasa el cursor sobre una barra para resaltar el país y su cantidad de películas nominadas.
+              </div>
+            </div>
+            <button
+              type="button"
+              class="chart-zoom-btn"
+              data-zoom-svg="chart2Svg"
+              data-zoom-caption="País de producción que más predomina en las películas nominadas"
+            >
+              Ampliar visualización
+            </button>
+
+            <div class="data-explanation">
+              <h2 class="section-subheading">¿Qué muestran los datos?</h2>
+              <p class="body-paragraph">
+                Siguiendo el análisis de la internacionalización, el gráfico 2 examina el origen de las productoras cinematográficas detrás de las nominaciones a Mejor Actor y Mejor Actriz. Al mostrar los países con mayor presencia en los Oscar, el objetivo es descubrir si la apertura de los Oscar es genuina o si los actores internacionales tienen mayores probabilidades de ser nominados únicamente cuando participan en películas respaldadas por la industria estadounidense
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             5. CIERRE DEL RECORRIDO CON JESSIE BUCKLEY
+             ===================================================== -->
+        <section id="cierre-jessie" class="finale-section" aria-labelledby="finale-title">
+          <div class="finale-figure">
+            <svg viewBox="0 0 200 250" aria-label="Jessie Buckley con su estatuilla del Oscar y la bandera de Irlanda al cierre del recorrido">
+              <circle cx="100" cy="65" r="56" fill="rgba(198,157,34,0.16)" stroke="#C69D22" stroke-width="1.3" stroke-dasharray="4 4" />
+              <ellipse cx="100" cy="65" rx="38" ry="41" fill="#f3cfa7" stroke="#181818" stroke-width="2.4" />
+              <path d="M61 59 C59 31, 82 21, 103 23 C126 25, 139 42, 137 65 C134 50, 125 41, 113 39 C99 46, 78 44, 61 59 Z" fill="#ebd079" stroke="#181818" stroke-width="2.2" />
+              <circle cx="86" cy="62" r="3.6" fill="#181818" />
+              <circle cx="114" cy="62" r="3.6" fill="#181818" />
+              <path d="M100 64 L98 74 L103 75" fill="none" stroke="#181818" stroke-width="1.9" stroke-linecap="round" />
+              <path d="M86 82 Q100 94 114 82" fill="#b9232c" stroke="#181818" stroke-width="2" stroke-linecap="round" />
+              <path d="M90 84 Q100 88 110 84" fill="#ffffff" />
+              <line x1="100" y1="106" x2="100" y2="178" stroke="#F8EFD8" stroke-width="4.2" stroke-linecap="round" />
+              <path d="M84 122 L116 122 L109 154 L91 154 Z" fill="#c71f2d" stroke="#F8EFD8" stroke-width="1.8" />
+              <polyline points="100,122 72,140 54,124" fill="none" stroke="#F8EFD8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="100,122 128,136 146,122" fill="none" stroke="#F8EFD8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="100,178 83,228 74,230" fill="none" stroke="#F8EFD8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="100,178 117,228 126,230" fill="none" stroke="#F8EFD8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+              <g transform="translate(40,86)">
+                <circle cx="12" cy="7" r="4" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                <path d="M8 13 L16 13 L14 33 L10 33 Z" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                <rect x="6" y="33" width="12" height="5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+              </g>
+              <g transform="translate(144,78)">
+                <line x1="2" y1="0" x2="2" y2="48" stroke="#F8EFD8" stroke-width="2.5" stroke-linecap="round" />
+                <rect x="3" y="2" width="38" height="25" rx="1.5" stroke="#F8EFD8" stroke-width="1" fill="#ffffff" />
+                <rect x="3" y="2" width="12.6" height="25" fill="#169B62" />
+                <rect x="15.6" y="2" width="12.6" height="25" fill="#FFFFFF" />
+                <rect x="28.2" y="2" width="12.8" height="25" fill="#FF883E" />
+              </g>
+            </svg>
+          </div>
+          <div class="finale-copy">
+            <h2 id="finale-title">El caso de Jessie Buckley frente a los datos</h2>
+            <p class="body-paragraph">
+              El recorrido cierra con la paradoja de la última edición: Jessie Buckley (Irlanda) alzó el premio a Mejor actriz en 2026 por <em>Hamnet</em>, pero su película fue respaldada por Reino Unido y Estados Unidos y hablada en inglés. La presencia extranjera crece, mientras el centro de gravedad de la producción sigue concentrado en Estados Unidos (619 películas).
+            </p>
+          </div>
+        </section>
+
+        <!-- Brand Story Navigation Buttons (Brand Guide p.10) -->
+        <nav class="chapter-nav" aria-label="Navegación entre secciones">
+          <a href="#podio" class="brand-pill-btn is-dark">
+            <span aria-hidden="true">←</span>
+            <span>Atrás</span>
+          </a>
+          <a href="#inicio" class="brand-pill-btn">
+            <span>Volver al inicio</span>
+            <span aria-hidden="true">↑</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Persistent Floating Jessie Buckley Guide (ONLY stick-figure, NO box beside her) -->
+    <aside id="jessieGuide" class="jessie-guide" aria-label="Guía de Jessie Buckley">
+      <button
+        id="jessieAvatarBtn"
+        type="button"
+        class="jessie-avatar-btn"
+        aria-label="Seguir recorrido con Jessie Buckley hacia la siguiente sección"
+        title="Seguir recorrido con Jessie Buckley"
+      >
+        <svg width="78" height="100" viewBox="0 0 120 155" aria-hidden="true">
+          <circle cx="60" cy="40" r="34" fill="rgba(198,157,34,0.22)" stroke="#C69D22" stroke-width="1.2" stroke-dasharray="3 3" />
+          <ellipse cx="60" cy="40" rx="25" ry="27" fill="#f3cfa7" stroke="#181818" stroke-width="2" />
+          <path d="M35 35 C34 17, 49 11, 62 12 C77 13, 86 24, 85 40 C82 30, 76 24, 68 23 C59 27, 46 26, 35 35 Z" fill="#ebd079" stroke="#181818" stroke-width="1.8" />
+          <circle cx="51" cy="38" r="2.6" fill="#181818" />
+          <circle cx="69" cy="38" r="2.6" fill="#181818" />
+          <path d="M51 51 Q60 59 69 51" fill="#b9232c" stroke="#181818" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="60" y1="67" x2="60" y2="112" stroke="#F8EFD8" stroke-width="3.2" stroke-linecap="round" />
+          <path d="M49 78 L71 78 L67 98 L53 98 Z" fill="#c71f2d" stroke="#F8EFD8" stroke-width="1.4" />
+          <polyline points="60,78 41,92 31,82" fill="none" stroke="#F8EFD8" stroke-width="3.2" stroke-linecap="round" />
+          <polyline points="60,78 79,90 91,82" fill="none" stroke="#F8EFD8" stroke-width="3.2" stroke-linecap="round" />
+          <polyline points="60,112 49,144" fill="none" stroke="#F8EFD8" stroke-width="3.2" stroke-linecap="round" />
+          <polyline points="60,112 71,144" fill="none" stroke="#F8EFD8" stroke-width="3.2" stroke-linecap="round" />
+          <!-- Mini Ireland Flag -->
+          <rect x="88" y="64" width="21" height="14" stroke="#F8EFD8" stroke-width="0.8" fill="#fff" />
+          <rect x="88" y="64" width="7" height="14" fill="#169B62" />
+          <rect x="102" y="64" width="7" height="14" fill="#FF883E" />
+          <!-- Mini Oscar -->
+          <circle cx="30" cy="70" r="3" fill="#C69D22" />
+          <rect x="27.5" y="73" width="5" height="11" fill="#C69D22" />
+        </svg>
+      </button>
+    </aside>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Oscar sin fronteras · Datos de nominaciones a Mejor actor y Mejor actriz (1929–2026)</span>
+        <span>Fuente: Base de datos Premios Oscar</span>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal for full-res chart inspection -->
+    <div id="chartLightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+      <div class="lightbox-content">
+        <button id="lightboxClose" type="button" class="lightbox-close" aria-label="Cerrar imagen ampliada">×</button>
+        <div id="lightboxSvgMount"></div>
+        <p id="lightboxCaption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <script defer src="./main.js"></script>
+  </body>
+</html>
