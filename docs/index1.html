@@ -1,0 +1,1949 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscar sin fronteras</title>
+    <meta
+      name="description"
+      content="Webstory sobre la internacionalización de los Premios Oscar (1929-2026): análisis de debut, nacionalidad de nominados y países de producción."
+    />
+    <meta property="og:title" content="Oscar sin fronteras" />
+    <meta
+      property="og:description"
+      content="Webstory sobre la internacionalización de los Premios Oscar (1929-2026): análisis de debut, nacionalidad de nominados y países de producción."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+<!-- Código que importa librerías de Altair del gráfico -->
+     <head>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+     </head>
+<body> 
+<!-- Elemento html que contiene el gráfico -->
+	<div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-449051ae88aedb740f7c3228ce9f0034"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "clasificar", "legend": {"labelLimit": 400, "symbolSize": 100}, "scale": {"domain": ["Estadounidense con debut en EE.UU.", "Estadounidense con debut internacional", "Extranjero con debut en EE.UU.", "Extranjero con debut internacional"], "range": ["#670010", "#F8EFD8", "#181818", "#C69D22"]}, "sort": ["Estadounidense con debut en EE.UU.", "Estadounidense con debut internacional", "Extranjero con debut en EE.UU.", "Extranjero con debut internacional"], "title": "Clasificaci\u00f3n", "type": "nominal"}, "tooltip": [{"field": "n", "title": "Nominaciones", "type": "quantitative"}, {"field": "total", "title": "Total de nominaciones d\u00e9cada", "type": "quantitative"}, {"field": "pct", "format": ".2f", "title": "Porcentaje", "type": "quantitative"}], "x": {"axis": {"format": "%"}, "field": "n", "stack": "normalize", "title": "Porcentaje de nominadas y nominados a los Oscar", "type": "quantitative"}, "y": {"field": "d\u00e9cada", "title": "D\u00e9cadas", "type": "ordinal"}}, "height": 400, "title": "Clasificaci\u00f3n de nominaciones a los Oscar por d\u00e9cada", "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-449051ae88aedb740f7c3228ce9f0034": [{"d\u00e9cada": "1920s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 7, "total": 9, "pct": 77.77777777777779}, {"d\u00e9cada": "1920s", "clasificar": "Extranjero con debut internacional", "n": 2, "total": 9, "pct": 22.22222222222222}, {"d\u00e9cada": "1930s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 58, "total": 96, "pct": 60.416666666666664}, {"d\u00e9cada": "1930s", "clasificar": "Extranjero con debut en EE.UU.", "n": 17, "total": 96, "pct": 17.708333333333336}, {"d\u00e9cada": "1930s", "clasificar": "Extranjero con debut internacional", "n": 21, "total": 96, "pct": 21.875}, {"d\u00e9cada": "1940s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 60, "total": 100, "pct": 60.0}, {"d\u00e9cada": "1940s", "clasificar": "Extranjero con debut en EE.UU.", "n": 20, "total": 100, "pct": 20.0}, {"d\u00e9cada": "1940s", "clasificar": "Extranjero con debut internacional", "n": 20, "total": 100, "pct": 20.0}, {"d\u00e9cada": "1950s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 72, "total": 100, "pct": 72.0}, {"d\u00e9cada": "1950s", "clasificar": "Extranjero con debut en EE.UU.", "n": 9, "total": 100, "pct": 9.0}, {"d\u00e9cada": "1950s", "clasificar": "Extranjero con debut internacional", "n": 19, "total": 100, "pct": 19.0}, {"d\u00e9cada": "1960s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 50, "total": 100, "pct": 50.0}, {"d\u00e9cada": "1960s", "clasificar": "Extranjero con debut en EE.UU.", "n": 13, "total": 100, "pct": 13.0}, {"d\u00e9cada": "1960s", "clasificar": "Extranjero con debut internacional", "n": 37, "total": 100, "pct": 37.0}, {"d\u00e9cada": "1970s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 64, "total": 100, "pct": 64.0}, {"d\u00e9cada": "1970s", "clasificar": "Estadounidense con debut internacional", "n": 4, "total": 100, "pct": 4.0}, {"d\u00e9cada": "1970s", "clasificar": "Extranjero con debut en EE.UU.", "n": 5, "total": 100, "pct": 5.0}, {"d\u00e9cada": "1970s", "clasificar": "Extranjero con debut internacional", "n": 27, "total": 100, "pct": 27.0}, {"d\u00e9cada": "1980s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 81, "total": 100, "pct": 81.0}, {"d\u00e9cada": "1980s", "clasificar": "Estadounidense con debut internacional", "n": 1, "total": 100, "pct": 1.0}, {"d\u00e9cada": "1980s", "clasificar": "Extranjero con debut en EE.UU.", "n": 4, "total": 100, "pct": 4.0}, {"d\u00e9cada": "1980s", "clasificar": "Extranjero con debut internacional", "n": 14, "total": 100, "pct": 14.000000000000002}, {"d\u00e9cada": "1990s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 65, "total": 100, "pct": 65.0}, {"d\u00e9cada": "1990s", "clasificar": "Extranjero con debut en EE.UU.", "n": 10, "total": 100, "pct": 10.0}, {"d\u00e9cada": "1990s", "clasificar": "Extranjero con debut internacional", "n": 25, "total": 100, "pct": 25.0}, {"d\u00e9cada": "2000s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 60, "total": 100, "pct": 60.0}, {"d\u00e9cada": "2000s", "clasificar": "Estadounidense con debut internacional", "n": 3, "total": 100, "pct": 3.0}, {"d\u00e9cada": "2000s", "clasificar": "Extranjero con debut en EE.UU.", "n": 8, "total": 100, "pct": 8.0}, {"d\u00e9cada": "2000s", "clasificar": "Extranjero con debut internacional", "n": 29, "total": 100, "pct": 28.999999999999996}, {"d\u00e9cada": "2010s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 60, "total": 100, "pct": 60.0}, {"d\u00e9cada": "2010s", "clasificar": "Estadounidense con debut internacional", "n": 2, "total": 100, "pct": 2.0}, {"d\u00e9cada": "2010s", "clasificar": "Extranjero con debut en EE.UU.", "n": 10, "total": 100, "pct": 10.0}, {"d\u00e9cada": "2010s", "clasificar": "Extranjero con debut internacional", "n": 28, "total": 100, "pct": 28.000000000000004}, {"d\u00e9cada": "2020s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 36, "total": 70, "pct": 51.42857142857142}, {"d\u00e9cada": "2020s", "clasificar": "Estadounidense con debut internacional", "n": 2, "total": 70, "pct": 2.857142857142857}, {"d\u00e9cada": "2020s", "clasificar": "Extranjero con debut en EE.UU.", "n": 12, "total": 70, "pct": 17.142857142857142}, {"d\u00e9cada": "2020s", "clasificar": "Extranjero con debut internacional", "n": 20, "total": 70, "pct": 28.57142857142857}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+  </script>
+  </body>
+  </html>
+    <!-- Código que importa librerías de Altair del gráfico -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+
+/* =====================================================
+   HERO / SCROLL-DRIVEN CURTAINS — BLACK CHERRY (#670010)
+   ===================================================== */
+.hero-scroll-track {
+  position: relative;
+  height: 225vh;
+  background-color: var(--black-cherry);
+}
+
+.hero-sticky-viewport {
+  position: sticky;
+  top: var(--header-h, 64px);
+  height: calc(100vh - var(--header-h, 64px));
+  min-height: 500px;
+  width: 100%;
+  padding: 1.25rem 1.5rem 1.75rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--black-cherry);
+  overflow: hidden;
+}
+
+/* Theater Curtain Stage */
+.curtain-stage {
+  width: 100%;
+  max-width: 1160px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  border: 1px solid rgba(198, 157, 34, 0.5);
+  background: radial-gradient(circle at 50% 45%, var(--black-cherry-elevated) 0%, #3b0009 100%);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.stage-valance {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  z-index: 35;
+  background: linear-gradient(180deg, #b68c1a 0%, #8e6910 70%, #523b07 100%);
+  border-bottom: 2px solid var(--golden-bronze-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.stage-valance::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 7px;
+  background-image: radial-gradient(circle at 10px 0, var(--golden-bronze) 7px, transparent 7.5px);
+  background-size: 20px 8px;
+}
+
+.stage-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: radial-gradient(ellipse at 50% 50%, rgba(198, 157, 34, 0.19) 0%, rgba(73, 0, 11, 0.25) 54%, transparent 80%);
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Title starts high at 26% (well above curtain ties at 52%) and glides smoothly to 18% */
+.hero-title-layer {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  width: min(90%, 920px);
+  z-index: 30;
+  text-align: center;
+  transform: translate(-50%, -50%) scale(1);
+  will-change: transform, top;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.45rem, 5.4vw, 4.5rem);
+  line-height: 1.06;
+  color: var(--golden-bronze);
+  margin: 0;
+  text-wrap: balance;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.72), 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* Bajada inside stage, revealed as curtains open on scroll */
+.bajada-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: min(86%, 680px);
+  z-index: 12;
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 28px));
+  will-change: opacity, transform;
+}
+
+.bajada-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.02rem, 1.8vw, 1.38rem);
+  line-height: 1.66;
+  color: var(--vanilla-cream);
+  margin: 0;
+}
+
+/* Minimalist downward scroll indicator icon on closed curtain (fades on scroll) */
+.scroll-cue-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 30;
+  color: var(--golden-bronze);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: gentleScrollBounce 2.1s ease-in-out infinite;
+}
+
+@keyframes gentleScrollBounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 7px);
+  }
+}
+
+/* Velvet Curtains driven directly by scroll progress */
+.curtain-panel {
+  position: absolute;
+  top: 18px;
+  bottom: 0;
+  width: 52%;
+  z-index: 20;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: top left;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #4c000b 0px,
+      #7d0518 22px,
+      #5c000e 42px,
+      #8d091d 60px,
+      #420009 78px
+    );
+  box-shadow: inset -18px 0 32px rgba(0, 0, 0, 0.6), 10px 0 28px rgba(0, 0, 0, 0.55);
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: top right;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #420009 0px,
+      #8d091d 18px,
+      #5c000e 36px,
+      #7d0518 56px,
+      #4c000b 78px
+    );
+  box-shadow: inset 18px 0 32px rgba(0, 0, 0, 0.6), -10px 0 28px rgba(0, 0, 0, 0.55);
+}
+
+.curtain-tie {
+  position: absolute;
+  top: 52%;
+  width: 72%;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8e6910, var(--golden-bronze-soft), #8e6910);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+}
+
+.curtain-left .curtain-tie {
+  left: 0;
+  transform: rotate(-11deg);
+}
+
+.curtain-right .curtain-tie {
+  right: 0;
+  transform: rotate(11deg);
+}
+
+.curtain-tassel {
+  position: absolute;
+  top: 51%;
+  width: 14px;
+  height: 44px;
+  border-radius: 4px 4px 8px 8px;
+  background: linear-gradient(180deg, var(--golden-bronze-soft), #8a630a);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.curtain-left .curtain-tassel {
+  left: 12px;
+}
+
+.curtain-right .curtain-tassel {
+  right: 12px;
+}
+
+/* =====================================================
+   MAIN STORY BODY — CONTINUOUS BLACK CHERRY (#670010)
+   ===================================================== */
+.story-main {
+  background-color: var(--black-cherry);
+  padding: 2.5rem 1.5rem 4.5rem;
+}
+
+.story-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+  line-height: 1.15;
+  color: var(--golden-bronze);
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.section-subheading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.25;
+  color: var(--golden-bronze);
+  margin: 0 0 0.75rem;
+}
+
+.body-paragraph {
+  color: var(--vanilla-cream);
+  font-size: 1.04rem;
+  line-height: 1.74;
+  margin: 0;
+  max-width: 68ch;
+}
+
+/* Section 1: Recreated Chart 1 Showcase */
+.chart-showcase {
+  max-width: 1020px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chart-card {
+  background-color: var(--vanilla-cream);
+  border: 2px solid var(--golden-bronze);
+  padding: 1.15rem 1.25rem 1rem;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+  color: var(--carbon-black);
+}
+
+#trayectoria-decada .chart-card {
+  background-color: #ffffff;
+  overflow-x: auto;
+}
+
+#vis {
+  display: block;
+  max-width: 100%;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-tooltip {
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(24, 24, 24, 0.16);
+  font-size: 0.88rem;
+  color: var(--carbon-black);
+  min-height: 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-zoom-btn {
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid var(--cherry-hairline);
+  color: var(--golden-bronze);
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  transition: border-color 180ms var(--ease-editorial), background-color 180ms var(--ease-editorial);
+}
+
+.chart-zoom-btn:hover {
+  border-color: var(--golden-bronze);
+  background-color: rgba(198, 157, 34, 0.14);
+}
+
+.data-explanation {
+  margin-top: 1.75rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--cherry-hairline);
+}
+
+/* Section 2: Drawings + Last 10 Nominees (2026) together below Chart 1 */
+.winners-nominees-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.98fr);
+  gap: 2.5rem;
+  align-items: start;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--cherry-hairline);
+}
+
+.winners-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--cherry-hairline);
+  background-color: var(--black-cherry-elevated);
+}
+
+.winners-kicker {
+  font-family: var(--font-display);
+  color: var(--golden-bronze);
+  font-size: 1.25rem;
+  margin: 0 0 0.35rem;
+  text-align: center;
+}
+
+.winners-subtitle {
+  font-size: 0.92rem;
+  color: var(--cream-muted);
+  margin: 0 0 1.4rem;
+  text-align: center;
+}
+
+.stick-duo {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 1.25rem;
+  width: 100%;
+  align-items: end;
+}
+
+.stick-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.65rem;
+  border: 1px solid transparent;
+  background: rgba(24, 24, 24, 0.18);
+  transition: border-color 180ms var(--ease-editorial), background-color 180ms var(--ease-editorial), transform 180ms var(--ease-editorial);
+}
+
+.stick-card.is-jessie {
+  padding: 1.25rem 0.9rem;
+  border-color: rgba(198, 157, 34, 0.58);
+  background: radial-gradient(circle at 50% 25%, rgba(198, 157, 34, 0.18), rgba(24, 24, 24, 0.22) 72%);
+}
+
+.stick-card.is-michael {
+  padding: 0.85rem 0.55rem;
+  opacity: 0.95;
+}
+
+.stick-card:hover,
+.stick-card.is-selected {
+  border-color: var(--golden-bronze);
+  transform: translateY(-2px);
+}
+
+.stick-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.stick-card.is-jessie .stick-svg {
+  max-width: 245px;
+}
+
+.stick-card.is-michael .stick-svg {
+  max-width: 142px;
+}
+
+.winner-meta {
+  margin-top: 0.65rem;
+}
+
+.winner-name {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--vanilla-cream);
+  margin: 0;
+}
+
+.stick-card.is-jessie .winner-name {
+  font-size: 1.22rem;
+  color: var(--golden-bronze-soft);
+}
+
+.winner-detail {
+  font-size: 0.84rem;
+  color: var(--cream-muted);
+  margin: 0.25rem 0 0;
+}
+
+.winner-flag-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--golden-bronze-soft);
+}
+
+.winner-spotlight-note {
+  margin-top: 1.25rem;
+  padding: 0.95rem 1.05rem;
+  width: 100%;
+  border: 1px solid var(--cherry-hairline);
+  background-color: var(--black-cherry-deep);
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: var(--vanilla-cream);
+  text-align: left;
+}
+
+/* Right Column: 2026 Nominees Numbered List */
+.nominees-panel {
+  border: 1px solid var(--cherry-hairline);
+  background-color: var(--black-cherry-elevated);
+  padding: 1.25rem;
+}
+
+.nominees-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--cherry-hairline);
+}
+
+.nominees-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--golden-bronze);
+  margin: 0;
+}
+
+.nominees-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(248, 239, 216, 0.32);
+  color: var(--vanilla-cream);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  transition: background-color 160ms var(--ease-editorial), color 160ms var(--ease-editorial), border-color 160ms var(--ease-editorial);
+}
+
+.filter-btn.is-active {
+  background-color: var(--golden-bronze);
+  border-color: var(--golden-bronze);
+  color: #181818;
+  font-weight: 700;
+}
+
+.nominees-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nominee-item {
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.55rem;
+  padding: 0.58rem 0.45rem;
+  border-bottom: 1px solid rgba(248, 239, 216, 0.16);
+  align-items: start;
+}
+
+.nominee-item:last-child {
+  border-bottom: none;
+}
+
+.nominee-item.is-winner {
+  background-color: rgba(198, 157, 34, 0.16);
+}
+
+.nominee-index {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--golden-bronze);
+  padding-top: 0.1rem;
+}
+
+.nominee-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.nominee-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.nominee-name {
+  font-weight: 700;
+  color: var(--vanilla-cream);
+  font-size: 0.96rem;
+}
+
+.nominee-winner-mark {
+  font-size: 0.78rem;
+  color: var(--golden-bronze);
+  white-space: nowrap;
+}
+
+.nominee-sub {
+  font-size: 0.84rem;
+  color: var(--cream-muted);
+}
+
+/* =====================================================
+   3. 5-PLACE PODIUM (BEFORE CHART 2)
+   ===================================================== */
+.podium-section {
+  padding-top: 2rem;
+  border-top: 1px solid var(--cherry-hairline);
+}
+
+.podium-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.podium-caption {
+  color: var(--cream-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: 58ch;
+}
+
+/* Wireframe podium order: 4° | 2° | 1° | 3° | 5° */
+.podium-stage {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: end;
+  padding: 1.5rem 0 0;
+  border-bottom: 2px solid var(--golden-bronze);
+}
+
+.podium-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 200ms var(--ease-editorial);
+}
+
+.podium-step:hover {
+  transform: translateY(-4px);
+}
+
+.podium-top-info {
+  padding: 0 0.35rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.podium-country {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: var(--vanilla-cream);
+  margin: 0;
+}
+
+.podium-count {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.92rem;
+  color: var(--golden-bronze-soft);
+  margin: 0;
+}
+
+.podium-block {
+  width: 100%;
+  border: 1px solid var(--golden-bronze);
+  border-bottom: none;
+  background: linear-gradient(180deg, rgba(198, 157, 34, 0.25) 0%, rgba(73, 0, 11, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  transition: background-color 200ms var(--ease-editorial);
+}
+
+.podium-step.rank-1 .podium-block {
+  height: 215px;
+  background: linear-gradient(180deg, rgba(198, 157, 34, 0.45) 0%, rgba(198, 157, 34, 0.16) 100%);
+  border-width: 2px;
+}
+
+.podium-step.rank-2 .podium-block {
+  height: 162px;
+}
+
+.podium-step.rank-3 .podium-block {
+  height: 132px;
+}
+
+.podium-step.rank-4 .podium-block {
+  height: 104px;
+}
+
+.podium-step.rank-5 .podium-block {
+  height: 82px;
+}
+
+.podium-rank-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 2.05rem);
+  color: var(--golden-bronze);
+  line-height: 1;
+}
+
+.podium-step.rank-1 .podium-rank-num {
+  color: var(--vanilla-cream);
+}
+
+.podium-detail-bar {
+  margin-top: 1.1rem;
+  padding: 0.85rem 1.15rem;
+  border: 1px solid var(--cherry-hairline);
+  background-color: var(--black-cherry-elevated);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   4. RECREATED CHART 2 & EXPLANATION
+   ===================================================== */
+.chart2-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.chart2-frame {
+  max-width: 1020px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Story chapter navigation buttons */
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cherry-hairline);
+}
+
+.brand-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1.55rem;
+  border-radius: 999px;
+  border: 2px solid #000000;
+  background-color: var(--golden-bronze);
+  color: #181818;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 180ms var(--ease-editorial), transform 180ms var(--ease-editorial);
+}
+
+.brand-pill-btn:hover {
+  background-color: var(--golden-bronze-soft);
+  transform: translateY(-1px);
+}
+
+.brand-pill-btn.is-dark {
+  background-color: var(--black-cherry-deep);
+  border-color: var(--golden-bronze);
+  color: var(--golden-bronze);
+}
+
+.brand-pill-btn.is-dark:hover {
+  background-color: #3d0009;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--black-cherry-deep);
+  border-top: 1px solid var(--cherry-hairline);
+  padding: 2rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: var(--cream-muted);
+}
+
+/* Lightbox Modal for full-res recreated SVG charts */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(24, 0, 4, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 1140px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: auto;
+  background: var(--vanilla-cream);
+  border: 2px solid var(--golden-bronze);
+  padding: 1.25rem;
+  position: relative;
+}
+
+.lightbox-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 2px solid #181818;
+  background-color: var(--golden-bronze);
+  color: #181818;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-caption {
+  margin: 0.75rem 0 0;
+  color: #181818;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1040px) {
+  .winners-nominees-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-nav {
+    display: none;
+  }
+  .hero-scroll-track {
+    height: 210vh;
+  }
+  .hero-sticky-viewport {
+    top: var(--header-h, 58px);
+    height: calc(100vh - var(--header-h, 58px));
+    min-height: 440px;
+    padding: 0.85rem 0.9rem 1.25rem;
+  }
+  .bajada-wrapper {
+    width: 90%;
+  }
+  .stick-duo {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .stick-card.is-jessie .stick-svg {
+    max-width: 220px;
+  }
+  .stick-card.is-michael .stick-svg {
+    max-width: 135px;
+  }
+  .podium-stage {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    border-bottom: none;
+  }
+  .podium-step.rank-1 { order: 1; }
+  .podium-step.rank-2 { order: 2; }
+  .podium-step.rank-3 { order: 3; }
+  .podium-step.rank-4 { order: 4; }
+  .podium-step.rank-5 { order: 5; }
+  .podium-step .podium-block {
+    height: auto !important;
+    border-bottom: 1px solid var(--golden-bronze);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .scroll-cue-arrow {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#inicio" class="brand-lockup">
+          <!-- Webstory Logo: Globe Clapperboard + Oscar Statuette (Brand Guide p.8) -->
+          <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+            <g transform="rotate(-10 26 32)">
+              <rect x="6" y="20" width="38" height="28" rx="2" fill="#3a4c9a" stroke="#C69D22" stroke-width="2" />
+              <path d="M12 28 C18 23, 24 27, 29 34 C33 39, 27 45, 19 44 C13 42, 10 35, 12 28 Z" fill="#4fa86c" opacity="0.9" />
+              <path d="M6 12 L44 6 L46 14 L8 20 Z" fill="#2c3a7a" stroke="#C69D22" stroke-width="1.8" />
+              <line x1="15" y1="11" x2="17" y2="18" stroke="#F8EFD8" stroke-width="2" />
+              <line x1="27" y1="9" x2="29" y2="16" stroke="#F8EFD8" stroke-width="2" />
+              <line x1="38" y1="7" x2="40" y2="14" stroke="#F8EFD8" stroke-width="2" />
+            </g>
+            <circle cx="45" cy="14" r="4.5" fill="#C69D22" />
+            <path d="M39 21 C39 19, 51 19, 51 21 L49 34 L48 52 L42 52 L41 34 Z" fill="#C69D22" stroke="#181818" stroke-width="1.2" />
+            <rect x="38" y="52" width="14" height="5" rx="1.5" fill="#C69D22" stroke="#181818" stroke-width="1.2" />
+          </svg>
+          <span>Oscar sin fronteras</span>
+        </a>
+
+        <nav class="header-nav" aria-label="Secciones de la historia">
+          <a href="#trayectoria-decada">Trayectoria</a>
+          <a href="#nominados-dibujos">Nominados 2026</a>
+          <a href="#podio">Países líderes</a>
+          <a href="#produccion-paises">Producción</a>
+        </nav>
+
+        <a href="#podio" class="header-cta">Ver podio</a>
+      </div>
+      <div class="reading-progress" aria-hidden="true">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         HERO / SCROLL-DRIVEN CURTAINS — CLOSED WITH TITLE FIRST
+         ========================================================= -->
+    <section id="inicio" class="hero-scroll-track" aria-labelledby="hero-title">
+      <div class="hero-sticky-viewport">
+        <div id="curtainStage" class="curtain-stage">
+          <div class="stage-valance" aria-hidden="true"></div>
+          <div id="stageSpotlight" class="stage-spotlight" aria-hidden="true"></div>
+
+          <!-- Title centered over closed curtains first, glides up smoothly on scroll -->
+          <div id="heroTitleLayer" class="hero-title-layer">
+            <h1 id="hero-title" class="hero-title">Oscar sin fronteras</h1>
+          </div>
+
+          <!-- Bajada revealed progressively as curtains open on scroll -->
+          <div id="bajadaContent" class="bajada-wrapper">
+            <p class="bajada-text">
+              Últimamente la Academia ha nominado a actores y actrices extranjeros. Pero detrás de esa nominación se encontraba un patrón: un país de producción y un mismo idioma actuado. ¿Los Oscar realmente se han internacionalizado o simplemente han importado talento según sus estándares?
+            </p>
+          </div>
+
+          <!-- Scroll-driven Left & Right Velvet Curtains -->
+          <div id="curtainLeft" class="curtain-panel curtain-left" aria-hidden="true">
+            <div class="curtain-tie"></div>
+            <div class="curtain-tassel"></div>
+          </div>
+          <div id="curtainRight" class="curtain-panel curtain-right" aria-hidden="true">
+            <div class="curtain-tie"></div>
+            <div class="curtain-tassel"></div>
+          </div>
+
+          <!-- Minimalist scroll arrow icon (no button, no text) -->
+          <div id="scrollCueArrow" class="scroll-cue-arrow" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         MAIN STORY BODY — CONTINUOUS BLACK CHERRY (#670010)
+         ========================================================= -->
+    <main class="story-main">
+      <div class="story-container">
+        <!-- 1. FIRST CHART (ALTAIR / VEGA-LITE) -->
+        <section id="trayectoria-decada" class="chart-showcase" aria-label="Clasificación de nominaciones a los Oscar por década">
+          <div class="chart-card">
+            <!-- Elemento html que contiene el gráfico -->
+            <div id="vis"></div>
+            <script>
+              (function(vegaEmbed) {
+                var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-449051ae88aedb740f7c3228ce9f0034"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "clasificar", "legend": {"labelLimit": 400, "symbolSize": 100}, "scale": {"domain": ["Estadounidense con debut en EE.UU.", "Estadounidense con debut internacional", "Extranjero con debut en EE.UU.", "Extranjero con debut internacional"], "range": ["#670010", "#F8EFD8", "#181818", "#C69D22"]}, "sort": ["Estadounidense con debut en EE.UU.", "Estadounidense con debut internacional", "Extranjero con debut en EE.UU.", "Extranjero con debut internacional"], "title": "Clasificaci\u00f3n", "type": "nominal"}, "tooltip": [{"field": "n", "title": "Nominaciones", "type": "quantitative"}, {"field": "total", "title": "Total de nominaciones d\u00e9cada", "type": "quantitative"}, {"field": "pct", "format": ".2f", "title": "Porcentaje", "type": "quantitative"}], "x": {"axis": {"format": "%"}, "field": "n", "stack": "normalize", "title": "Porcentaje de nominadas y nominados a los Oscar", "type": "quantitative"}, "y": {"field": "d\u00e9cada", "title": "D\u00e9cadas", "type": "ordinal"}}, "height": 400, "title": "Clasificaci\u00f3n de nominaciones a los Oscar por d\u00e9cada", "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-449051ae88aedb740f7c3228ce9f0034": [{"d\u00e9cada": "1920s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 7, "total": 9, "pct": 77.77777777777779}, {"d\u00e9cada": "1920s", "clasificar": "Extranjero con debut internacional", "n": 2, "total": 9, "pct": 22.22222222222222}, {"d\u00e9cada": "1930s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 58, "total": 96, "pct": 60.416666666666664}, {"d\u00e9cada": "1930s", "clasificar": "Extranjero con debut en EE.UU.", "n": 17, "total": 96, "pct": 17.708333333333336}, {"d\u00e9cada": "1930s", "clasificar": "Extranjero con debut internacional", "n": 21, "total": 96, "pct": 21.875}, {"d\u00e9cada": "1940s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 60, "total": 100, "pct": 60.0}, {"d\u00e9cada": "1940s", "clasificar": "Extranjero con debut en EE.UU.", "n": 20, "total": 100, "pct": 20.0}, {"d\u00e9cada": "1940s", "clasificar": "Extranjero con debut internacional", "n": 20, "total": 100, "pct": 20.0}, {"d\u00e9cada": "1950s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 72, "total": 100, "pct": 72.0}, {"d\u00e9cada": "1950s", "clasificar": "Extranjero con debut en EE.UU.", "n": 9, "total": 100, "pct": 9.0}, {"d\u00e9cada": "1950s", "clasificar": "Extranjero con debut internacional", "n": 19, "total": 100, "pct": 19.0}, {"d\u00e9cada": "1960s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 50, "total": 100, "pct": 50.0}, {"d\u00e9cada": "1960s", "clasificar": "Extranjero con debut en EE.UU.", "n": 13, "total": 100, "pct": 13.0}, {"d\u00e9cada": "1960s", "clasificar": "Extranjero con debut internacional", "n": 37, "total": 100, "pct": 37.0}, {"d\u00e9cada": "1970s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 64, "total": 100, "pct": 64.0}, {"d\u00e9cada": "1970s", "clasificar": "Estadounidense con debut internacional", "n": 4, "total": 100, "pct": 4.0}, {"d\u00e9cada": "1970s", "clasificar": "Extranjero con debut en EE.UU.", "n": 5, "total": 100, "pct": 5.0}, {"d\u00e9cada": "1970s", "clasificar": "Extranjero con debut internacional", "n": 27, "total": 100, "pct": 27.0}, {"d\u00e9cada": "1980s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 81, "total": 100, "pct": 81.0}, {"d\u00e9cada": "1980s", "clasificar": "Estadounidense con debut internacional", "n": 1, "total": 100, "pct": 1.0}, {"d\u00e9cada": "1980s", "clasificar": "Extranjero con debut en EE.UU.", "n": 4, "total": 100, "pct": 4.0}, {"d\u00e9cada": "1980s", "clasificar": "Extranjero con debut internacional", "n": 14, "total": 100, "pct": 14.000000000000002}, {"d\u00e9cada": "1990s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 65, "total": 100, "pct": 65.0}, {"d\u00e9cada": "1990s", "clasificar": "Extranjero con debut en EE.UU.", "n": 10, "total": 100, "pct": 10.0}, {"d\u00e9cada": "1990s", "clasificar": "Extranjero con debut internacional", "n": 25, "total": 100, "pct": 25.0}, {"d\u00e9cada": "2000s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 60, "total": 100, "pct": 60.0}, {"d\u00e9cada": "2000s", "clasificar": "Estadounidense con debut internacional", "n": 3, "total": 100, "pct": 3.0}, {"d\u00e9cada": "2000s", "clasificar": "Extranjero con debut en EE.UU.", "n": 8, "total": 100, "pct": 8.0}, {"d\u00e9cada": "2000s", "clasificar": "Extranjero con debut internacional", "n": 29, "total": 100, "pct": 28.999999999999996}, {"d\u00e9cada": "2010s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 60, "total": 100, "pct": 60.0}, {"d\u00e9cada": "2010s", "clasificar": "Estadounidense con debut internacional", "n": 2, "total": 100, "pct": 2.0}, {"d\u00e9cada": "2010s", "clasificar": "Extranjero con debut en EE.UU.", "n": 10, "total": 100, "pct": 10.0}, {"d\u00e9cada": "2010s", "clasificar": "Extranjero con debut internacional", "n": 28, "total": 100, "pct": 28.000000000000004}, {"d\u00e9cada": "2020s", "clasificar": "Estadounidense con debut en EE.UU.", "n": 36, "total": 70, "pct": 51.42857142857142}, {"d\u00e9cada": "2020s", "clasificar": "Estadounidense con debut internacional", "n": 2, "total": 70, "pct": 2.857142857142857}, {"d\u00e9cada": "2020s", "clasificar": "Extranjero con debut en EE.UU.", "n": 12, "total": 70, "pct": 17.142857142857142}, {"d\u00e9cada": "2020s", "clasificar": "Extranjero con debut internacional", "n": 20, "total": 70, "pct": 28.57142857142857}]}};
+                var embedOpt = {"mode": "vega-lite"};
+
+                function showError(el, error){
+                    el.innerHTML = ('<div style="color:red;">'
+                                    + '<p>JavaScript Error: ' + error.message + '</p>'
+                                    + "<p>This usually means there's a typo in your chart specification. "
+                                    + "See the javascript console for the full traceback.</p>"
+                                    + '</div>');
+                    throw error;
+                }
+                const el = document.getElementById('vis');
+                vegaEmbed("#vis", spec, embedOpt)
+                  .catch(error => showError(el, error));
+              })(vegaEmbed);
+            </script>
+          </div>
+
+          <div class="data-explanation">
+            <h2 class="section-subheading">¿Qué muestran los datos?</h2>
+            <p class="body-paragraph">
+              El gráfico busca revelar si los nominados a Mejor Actor-Actriz son en su mayoría estadounidense con debut en su país o extranjeros con debut en Estados Unidos. Se evidencia que en las últimas 3 décadas La Academia ha tenido más presencia extranjera. Nuestro objetivo descubrir si la industria ha aceptado el talento extranjero año tras año.
+            </p>
+          </div>
+        </section>
+
+        <!-- 2. BELOW CHART 1: STICK-FIGURE DRAWINGS (JESSIE LARGER) + LAST 10 NOMINEES (2026) -->
+        <section id="nominados-dibujos" class="winners-nominees-grid" aria-label="Ganadores y últimos 10 nominados de 2026">
+          <!-- Stick-figure Drawings (WITHOUT "WINNER" labels above them) -->
+          <div id="ganadores-2026" class="winners-stage">
+            <h2 class="winners-kicker">Ganadores última edición (2026)</h2>
+            <p class="winners-subtitle">Jessie Buckley encabeza la última edición junto a Michael B. Jordan</p>
+
+            <div class="stick-duo">
+              <!-- JESSIE BUCKLEY (LARGER, Winner 2026, Mejor actriz, Irlanda) -->
+              <button
+                type="button"
+                class="stick-card is-jessie is-selected"
+                data-winner="jessie"
+                aria-pressed="true"
+              >
+                <svg class="stick-svg" viewBox="0 0 200 265" aria-label="Dibujo a palito de Jessie Buckley con cabeza grande y bandera de Irlanda">
+                  <circle cx="100" cy="70" r="64" fill="rgba(198,157,34,0.18)" stroke="#C69D22" stroke-width="1.4" stroke-dasharray="4 4" />
+                  <path d="M74 17 L82 4 L91 14 L100 2 L109 14 L118 4 L126 17 Z" fill="#C69D22" stroke="#181818" stroke-width="1.5" />
+                  <ellipse cx="100" cy="68" rx="40" ry="43" fill="#f3cfa7" stroke="#181818" stroke-width="2.6" />
+                  <path d="M59 61 C57 32, 82 21, 103 23 C128 25, 141 43, 139 68 C136 52, 126 42, 114 40 C99 47, 77 45, 59 61 Z" fill="#ebd079" stroke="#181818" stroke-width="2.4" />
+                  <path d="M58 60 C55 74, 59 85, 66 90" fill="none" stroke="#ebd079" stroke-width="7" stroke-linecap="round" />
+                  <path d="M78 56 Q86 51 92 56" fill="none" stroke="#181818" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M108 56 Q115 51 123 56" fill="none" stroke="#181818" stroke-width="2.2" stroke-linecap="round" />
+                  <circle cx="85" cy="64" r="4" fill="#181818" />
+                  <circle cx="115" cy="64" r="4" fill="#181818" />
+                  <circle cx="86.2" cy="62.6" r="1.3" fill="#ffffff" />
+                  <circle cx="116.2" cy="62.6" r="1.3" fill="#ffffff" />
+                  <path d="M100 66 L97 77 L103 78" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" />
+                  <path d="M84 85 Q100 99 116 85" fill="#b9232c" stroke="#181818" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M89 88 Q100 92 111 88" fill="#ffffff" />
+                  <circle cx="72" cy="77" r="5" fill="rgba(220,90,90,0.35)" />
+                  <circle cx="128" cy="77" r="5" fill="rgba(220,90,90,0.35)" />
+
+                  <line x1="100" y1="111" x2="100" y2="188" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" />
+                  <path d="M82 128 L118 128 L110 163 L90 163 Z" fill="#c71f2d" stroke="#F8EFD8" stroke-width="2" />
+                  <polyline points="100,128 70,148 52,132" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="100,128 130,144 148,130" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="100,188 82,242 73,245" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="100,188 118,242 128,245" fill="none" stroke="#F8EFD8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <g transform="translate(38,91)">
+                    <circle cx="13" cy="8" r="4.5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <path d="M8.5 14 L17.5 14 L15.5 36 L10.5 36 Z" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <rect x="6" y="36" width="14" height="5.5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                  </g>
+
+                  <g transform="translate(146,84)">
+                    <line x1="2" y1="0" x2="2" y2="52" stroke="#F8EFD8" stroke-width="2.8" stroke-linecap="round" />
+                    <rect x="3" y="2" width="42" height="28" rx="1.5" stroke="#F8EFD8" stroke-width="1" fill="#ffffff" />
+                    <rect x="3" y="2" width="14" height="28" fill="#169B62" />
+                    <rect x="17" y="2" width="14" height="28" fill="#FFFFFF" />
+                    <rect x="31" y="2" width="14" height="28" fill="#FF883E" />
+                  </g>
+                </svg>
+
+                <div class="winner-meta">
+                  <p class="winner-name">Jessie Buckley</p>
+                  <p class="winner-detail">Mejor actriz · Hamnet</p>
+                  <div class="winner-flag-row">
+                    <svg width="22" height="15" viewBox="0 0 30 20" aria-hidden="true">
+                      <rect width="10" height="20" fill="#169B62" />
+                      <rect x="10" width="10" height="20" fill="#FFFFFF" />
+                      <rect x="20" width="10" height="20" fill="#FF883E" />
+                    </svg>
+                    <span>Irlanda · Ganadora</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- MICHAEL B. JORDAN (SMALLER, Winner 2026, Mejor actor, Estados Unidos) -->
+              <button
+                type="button"
+                class="stick-card is-michael"
+                data-winner="michael"
+                aria-pressed="false"
+              >
+                <svg class="stick-svg" viewBox="0 0 180 245" aria-label="Dibujo a palito de Michael B. Jordan con cabeza grande y bandera de Estados Unidos">
+                  <circle cx="90" cy="64" r="52" fill="rgba(198,157,34,0.1)" />
+                  <ellipse cx="90" cy="62" rx="34" ry="38" fill="#8b5537" stroke="#181818" stroke-width="2.4" />
+                  <path d="M57 49 C58 26, 73 20, 90 20 C107 20, 122 26, 123 49 C117 38, 106 34, 90 34 C74 34, 63 38, 57 49 Z" fill="#191615" stroke="#181818" stroke-width="2" />
+                  <path d="M71 51 Q78 47 84 51" fill="none" stroke="#181818" stroke-width="2.4" stroke-linecap="round" />
+                  <path d="M96 51 Q102 47 109 51" fill="none" stroke="#181818" stroke-width="2.4" stroke-linecap="round" />
+                  <circle cx="77" cy="58" r="3.4" fill="#181818" />
+                  <circle cx="103" cy="58" r="3.4" fill="#181818" />
+                  <circle cx="78" cy="56.8" r="1.1" fill="#ffffff" />
+                  <circle cx="104" cy="56.8" r="1.1" fill="#ffffff" />
+                  <path d="M90 59 L87 69 L94 70" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" />
+                  <path d="M60 71 C63 92, 77 101, 90 101 C103 101, 117 92, 120 71 C114 82, 105 87, 90 87 C75 87, 66 82, 60 71 Z" fill="#1c1817" />
+                  <path d="M79 77 Q90 85 101 77" fill="#ffffff" stroke="#181818" stroke-width="1.8" stroke-linecap="round" />
+
+                  <line x1="90" y1="100" x2="90" y2="168" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" />
+                  <polygon points="82,107 90,111 82,115" fill="#C69D22" />
+                  <polygon points="98,107 90,111 98,115" fill="#C69D22" />
+                  <polyline points="90,116 64,132 48,118" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="90,116 118,128 134,116" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="90,168 74,218 66,220" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="90,168 106,218 115,220" fill="none" stroke="#F8EFD8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <g transform="translate(36,80)">
+                    <circle cx="12" cy="7" r="4" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <path d="M8 13 L16 13 L14 33 L10 33 Z" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                    <rect x="6" y="33" width="12" height="5" fill="#C69D22" stroke="#181818" stroke-width="1" />
+                  </g>
+
+                  <g transform="translate(132,74)">
+                    <line x1="2" y1="0" x2="2" y2="46" stroke="#F8EFD8" stroke-width="2.5" stroke-linecap="round" />
+                    <rect x="3" y="2" width="36" height="24" rx="1.5" fill="#ffffff" stroke="#F8EFD8" stroke-width="1" />
+                    <rect x="3" y="2" width="36" height="3.4" fill="#B22234" />
+                    <rect x="3" y="8.8" width="36" height="3.4" fill="#B22234" />
+                    <rect x="3" y="15.6" width="36" height="3.4" fill="#B22234" />
+                    <rect x="3" y="22.4" width="36" height="3.6" fill="#B22234" />
+                    <rect x="3" y="2" width="16" height="13" fill="#3C3B6E" />
+                    <circle cx="7" cy="5.5" r="0.9" fill="#fff" />
+                    <circle cx="11" cy="5.5" r="0.9" fill="#fff" />
+                    <circle cx="15" cy="5.5" r="0.9" fill="#fff" />
+                    <circle cx="9" cy="8.5" r="0.9" fill="#fff" />
+                    <circle cx="13" cy="8.5" r="0.9" fill="#fff" />
+                    <circle cx="7" cy="11.5" r="0.9" fill="#fff" />
+                    <circle cx="11" cy="11.5" r="0.9" fill="#fff" />
+                    <circle cx="15" cy="11.5" r="0.9" fill="#fff" />
+                  </g>
+                </svg>
+
+                <div class="winner-meta">
+                  <p class="winner-name">Michael B. Jordan</p>
+                  <p class="winner-detail">Mejor actor · Sinners</p>
+                  <div class="winner-flag-row">
+                    <svg width="20" height="14" viewBox="0 0 30 20" aria-hidden="true">
+                      <rect width="30" height="20" fill="#ffffff" />
+                      <rect y="0" width="30" height="3" fill="#B22234" />
+                      <rect y="6" width="30" height="3" fill="#B22234" />
+                      <rect y="12" width="30" height="3" fill="#B22234" />
+                      <rect y="17" width="30" height="3" fill="#B22234" />
+                      <rect width="13" height="11" fill="#3C3B6E" />
+                    </svg>
+                    <span>Estados Unidos · Ganador</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div id="winnerSpotlightNote" class="winner-spotlight-note">
+              <strong>Jessie Buckley (Irlanda) — Ganadora 2026:</strong> Nacida en Killarney, Irlanda, obtuvo el Oscar a Mejor actriz por <em>Hamnet</em> (2025), película producida por <strong>Reino Unido, Estados Unidos</strong> e interpretada en <strong>Inglés</strong>.
+            </div>
+          </div>
+
+          <!-- Últimos 10 nominados (2026) -->
+          <aside id="nominados-2026" class="nominees-panel" aria-labelledby="nominees-title">
+            <div class="nominees-header">
+              <h2 id="nominees-title" class="nominees-title">Últimos nominados (2026)</h2>
+              <div class="nominees-filter" role="group" aria-label="Filtrar nominados por categoría">
+                <button type="button" class="filter-btn is-active" data-filter="all">Todos (10)</button>
+                <button type="button" class="filter-btn" data-filter="Mejor actor">Mejor actor (5)</button>
+                <button type="button" class="filter-btn" data-filter="Mejor actriz">Mejor actriz (5)</button>
+              </div>
+            </div>
+
+            <ol id="nomineesList" class="nominees-list"></ol>
+          </aside>
+        </section>
+
+        <!-- =====================================================
+             3. PODIO DE 5 LUGARES (BEFORE CHART 2)
+             ===================================================== -->
+        <section id="podio" class="podium-section" aria-labelledby="podium-title">
+          <div class="podium-intro">
+            <div>
+              <h2 id="podium-title" class="section-heading">Países con mayor presencia en la producción</h2>
+              <p class="podium-caption">
+                Los 5 países que lideran la producción de las películas nominadas en las categorías Mejor actor y Mejor actriz (1929–2026).
+              </p>
+            </div>
+          </div>
+
+          <div class="podium-stage" id="podiumStage" role="list" aria-label="Podio de 5 lugares de países de producción">
+            <!-- 4° Lugar: Canadá (18) -->
+            <div class="podium-step rank-4" role="listitem" tabindex="0" data-country="Canadá">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+                  <rect width="36" height="24" fill="#FFFFFF" />
+                  <rect width="9" height="24" fill="#D80621" />
+                  <rect x="27" width="9" height="24" fill="#D80621" />
+                  <path d="M18 5 L19.5 10 L23 9.5 L20.5 12.5 L22 14.5 L18.8 14 L18.8 18 L17.2 18 L17.2 14 L14 14.5 L15.5 12.5 L13 9.5 L16.5 10 Z" fill="#D80621" />
+                </svg>
+                <h3 class="podium-country">Canadá</h3>
+                <p class="podium-count">18 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">4°</span>
+              </div>
+            </div>
+
+            <!-- 2° Lugar: Reino Unido (116) -->
+            <div class="podium-step rank-2" role="listitem" tabindex="0" data-country="Reino Unido">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 60 40" aria-hidden="true">
+                  <rect width="60" height="40" fill="#012169" />
+                  <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="7" />
+                  <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4" />
+                  <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="11" />
+                  <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="6.5" />
+                </svg>
+                <h3 class="podium-country">Reino Unido</h3>
+                <p class="podium-count">116 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">2°</span>
+              </div>
+            </div>
+
+            <!-- 1° Lugar: Estados Unidos (619) -->
+            <div class="podium-step rank-1" role="listitem" tabindex="0" data-country="Estados Unidos">
+              <div class="podium-top-info">
+                <svg width="42" height="28" viewBox="0 0 42 28" aria-hidden="true">
+                  <rect width="42" height="28" fill="#ffffff" />
+                  <rect y="0" width="42" height="4" fill="#B22234" />
+                  <rect y="8" width="42" height="4" fill="#B22234" />
+                  <rect y="16" width="42" height="4" fill="#B22234" />
+                  <rect y="24" width="42" height="4" fill="#B22234" />
+                  <rect width="18" height="15" fill="#3C3B6E" />
+                  <circle cx="5" cy="4.5" r="1" fill="#fff" />
+                  <circle cx="9.5" cy="4.5" r="1" fill="#fff" />
+                  <circle cx="14" cy="4.5" r="1" fill="#fff" />
+                  <circle cx="7" cy="8" r="1" fill="#fff" />
+                  <circle cx="12" cy="8" r="1" fill="#fff" />
+                  <circle cx="5" cy="11.5" r="1" fill="#fff" />
+                  <circle cx="9.5" cy="11.5" r="1" fill="#fff" />
+                  <circle cx="14" cy="11.5" r="1" fill="#fff" />
+                </svg>
+                <h3 class="podium-country">Estados Unidos</h3>
+                <p class="podium-count">619 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">1°</span>
+              </div>
+            </div>
+
+            <!-- 3° Lugar: Francia (30) -->
+            <div class="podium-step rank-3" role="listitem" tabindex="0" data-country="Francia">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+                  <rect width="12" height="24" fill="#002395" />
+                  <rect x="12" width="12" height="24" fill="#FFFFFF" />
+                  <rect x="24" width="12" height="24" fill="#ED2939" />
+                </svg>
+                <h3 class="podium-country">Francia</h3>
+                <p class="podium-count">30 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">3°</span>
+              </div>
+            </div>
+
+            <!-- 5° Lugar: Italia (13) -->
+            <div class="podium-step rank-5" role="listitem" tabindex="0" data-country="Italia">
+              <div class="podium-top-info">
+                <svg width="36" height="24" viewBox="0 0 36 24" aria-hidden="true">
+                  <rect width="12" height="24" fill="#009246" />
+                  <rect x="12" width="12" height="24" fill="#FFFFFF" />
+                  <rect x="24" width="12" height="24" fill="#CE2B37" />
+                </svg>
+                <h3 class="podium-country">Italia</h3>
+                <p class="podium-count">13 películas nominadas</p>
+              </div>
+              <div class="podium-block">
+                <span class="podium-rank-num">5°</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="podiumDetailBar" class="podium-detail-bar">
+            <span><strong>1° Estados Unidos:</strong> 619 películas nominadas como país principal de producción.</span>
+            <span style="color: var(--golden-bronze); font-variant-numeric: tabular-nums;">77,8% del Top 5</span>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             4. SECOND CHART RECREATED IN BRAND PALETTE COLORS
+             ===================================================== -->
+        <section id="produccion-paises" class="chart2-section" aria-label="País de producción que más predomina en las películas nominadas">
+          <div class="chart2-frame">
+            <div class="chart-card">
+              <svg
+                id="chart2Svg"
+                class="chart-svg"
+                viewBox="0 0 1000 760"
+                role="img"
+                aria-label="País de producción que más predomina en las películas nominadas"
+              ></svg>
+              <div id="chart2Tooltip" class="chart-tooltip">
+                Pasa el cursor sobre una barra para resaltar el país y su cantidad de películas nominadas.
+              </div>
+            </div>
+            <button
+              type="button"
+              class="chart-zoom-btn"
+              data-zoom-svg="chart2Svg"
+              data-zoom-caption="País de producción que más predomina en las películas nominadas"
+            >
+              Ampliar visualización
+            </button>
+
+            <div class="data-explanation">
+              <h2 class="section-subheading">¿Qué muestran los datos?</h2>
+              <p class="body-paragraph">
+                Siguiendo el análisis de la internacionalización, el gráfico 2 examina el origen de las productoras cinematográficas detrás de las nominaciones a Mejor Actor y Mejor Actriz. Al mostrar los países con mayor presencia en los Oscar, el objetivo es descubrir si la apertura de los Oscar es genuina o si los actores internacionales tienen mayores probabilidades de ser nominados únicamente cuando participan en películas respaldadas por la industria estadounidense
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Brand Story Navigation Buttons (Brand Guide p.10) -->
+        <nav class="chapter-nav" aria-label="Navegación entre secciones">
+          <a href="#podio" class="brand-pill-btn is-dark">
+            <span aria-hidden="true">←</span>
+            <span>Atrás</span>
+          </a>
+          <a href="#inicio" class="brand-pill-btn">
+            <span>Volver al inicio</span>
+            <span aria-hidden="true">↑</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Oscar sin fronteras · Datos de nominaciones a Mejor actor y Mejor actriz (1929–2026)</span>
+        <span>Fuente: Base de datos Premios Oscar</span>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal for full-res chart inspection -->
+    <div id="chartLightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+      <div class="lightbox-content">
+        <button id="lightboxClose" type="button" class="lightbox-close" aria-label="Cerrar imagen ampliada">×</button>
+        <div id="lightboxSvgMount"></div>
+        <p id="lightboxCaption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <script>
+(function () {
+  function init() {
+  const SVG_NS = "http://www.w3.org/2000/svg";
+
+  function createSvgEl(tag, attrs, text) {
+    const el = document.createElementNS(SVG_NS, tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        el.setAttribute(k, String(attrs[k]));
+      });
+    }
+    if (text !== undefined) {
+      el.textContent = String(text);
+    }
+    return el;
+  }
+
+
+  // =====================================================
+  // RECREATED CHART 2 (#670010, #C69D22, #181818, #63605A)
+  // =====================================================
+  const CHART2_DATA = [
+    { country: "Estados Unidos", count: 619, color: "#670010" },
+    { country: "Reino Unido", count: 116, color: "#C69D22" },
+    { country: "Francia", count: 30, color: "#181818" },
+    { country: "Canadá", count: 18, color: "#63605A" },
+    { country: "Italia", count: 13, color: "#670010" },
+    { country: "Alemania", count: 12, color: "#C69D22" },
+    { country: "Irlanda", count: 11, color: "#181818" },
+    { country: "Australia", count: 7, color: "#63605A" },
+    { country: "México", count: 5, color: "#670010" },
+    { country: "España", count: 4, color: "#C69D22" },
+    { country: "Japón", count: 4, color: "#181818" },
+    { country: "Brasil", count: 4, color: "#63605A" },
+    { country: "Suecia", count: 3, color: "#670010" },
+    { country: "Bélgica", count: 3, color: "#C69D22" },
+    { country: "India", count: 3, color: "#181818" },
+    { country: "Suiza", count: 2, color: "#63605A" },
+    { country: "Grecia", count: 2, color: "#670010" },
+    { country: "Chile", count: 2, color: "#C69D22" },
+    { country: "Dinamarca", count: 2, color: "#181818" },
+    { country: "Checoslovaquia", count: 1, color: "#63605A" },
+    { country: "Nueva Zelanda", count: 1, color: "#670010" },
+    { country: "Ecuador", count: 1, color: "#C69D22" },
+    { country: "Sudáfrica", count: 1, color: "#181818" },
+    { country: "Estonia", count: 1, color: "#63605A" },
+    { country: "República Checa", count: 1, color: "#670010" },
+    { country: "Países Bajos", count: 1, color: "#C69D22" },
+    { country: "Turquía", count: 1, color: "#181818" },
+    { country: "Rusia", count: 1, color: "#63605A" },
+    { country: "Noruega", count: 1, color: "#670010" }
+  ];
+
+  function renderChart2() {
+    const svg = document.getElementById("chart2Svg");
+    const tooltip = document.getElementById("chart2Tooltip");
+    if (!svg) return;
+    svg.innerHTML = "";
+
+    // Background
+    svg.appendChild(createSvgEl("rect", { x: 0, y: 0, width: 1000, height: 760, fill: "#F8EFD8" }));
+
+    // Title
+    svg.appendChild(
+      createSvgEl(
+        "text",
+        {
+          x: 545,
+          y: 26,
+          "text-anchor": "middle",
+          "font-family": "Yeseva One, Georgia, serif",
+          "font-size": 19,
+          fill: "#181818"
+        },
+        "País de producción que más predomina en las películas nominadas"
+      )
+    );
+
+    const left = 148;
+    const top = 40;
+    const plotW = 824;
+    const plotH = 668;
+    const maxX = 650;
+
+    // Y-Axis Title
+    svg.appendChild(
+      createSvgEl(
+        "text",
+        {
+          x: 20,
+          y: top + plotH / 2,
+          transform: "rotate(-90 20 " + (top + plotH / 2) + ")",
+          "text-anchor": "middle",
+          "font-family": "Bodoni Moda, Georgia, serif",
+          "font-size": 14,
+          "font-weight": 700,
+          fill: "#181818"
+        },
+        "País de producción"
+      )
+    );
+
+    // Vertical gridlines & X ticks (0 to 650 step 50)
+    for (let val = 0; val <= maxX; val += 50) {
+      const x = left + (val / maxX) * plotW;
+      svg.appendChild(
+        createSvgEl("line", {
+          x1: x,
+          y1: top,
+          x2: x,
+          y2: top + plotH,
+          stroke: "rgba(24,24,24,0.16)",
+          "stroke-width": 1
+        })
+      );
+      svg.appendChild(
+        createSvgEl("line", {
+          x1: x,
+          y1: top + plotH,
+          x2: x,
+          y2: top + plotH + 5,
+          stroke: "#181818",
+          "stroke-width": 1
+        })
+      );
+      svg.appendChild(
+        createSvgEl(
+          "text",
+          {
+            x: x,
+            y: top + plotH + 20,
+            "text-anchor": "middle",
+            "font-family": "Bodoni Moda, Georgia, serif",
+            "font-size": 12,
+            fill: "#181818"
+          },
+          val
+        )
+      );
+    }
+
+    // Axes lines
+    svg.appendChild(
+      createSvgEl("line", {
+        x1: left,
+        y1: top,
+        x2: left,
+        y2: top + plotH,
+        stroke: "#181818",
+        "stroke-width": 1.2
+      })
+    );
+    svg.appendChild(
+      createSvgEl("line", {
+        x1: left,
+        y1: top + plotH,
+        x2: left + plotW,
+        y2: top + plotH,
+        stroke: "#181818",
+        "stroke-width": 1.2
+      })
+    );
+
+    // X-Axis Title
+    svg.appendChild(
+      createSvgEl(
+        "text",
+        {
+          x: left + plotW / 2,
+          y: 748,
+          "text-anchor": "middle",
+          "font-family": "Bodoni Moda, Georgia, serif",
+          "font-size": 14,
+          "font-weight": 700,
+          fill: "#181818"
+        },
+        "Cantidad de películas nominadas"
+      )
+    );
+
+    const rowStep = plotH / CHART2_DATA.length;
+    const barH = rowStep * 0.78;
+
+    CHART2_DATA.forEach(function (d, idx) {
+      const y = top + idx * rowStep + (rowStep - barH) / 2;
+      const barW = Math.max(3, (d.count / maxX) * plotW);
+
+      const g = createSvgEl("g", { style: "cursor: pointer;" });
+
+      g.appendChild(
+        createSvgEl("line", {
+          x1: left - 5,
+          y1: y + barH / 2,
+          x2: left,
+          y2: y + barH / 2,
+          stroke: "#181818",
+          "stroke-width": 1
+        })
+      );
+
+      g.appendChild(
+        createSvgEl(
+          "text",
+          {
+            x: left - 9,
+            y: y + barH / 2 + 4,
+            "text-anchor": "end",
+            "font-family": "Bodoni Moda, Georgia, serif",
+            "font-size": 12.2,
+            fill: "#181818"
+          },
+          d.country
+        )
+      );
+
+      g.appendChild(
+        createSvgEl("rect", {
+          x: left,
+          y: y,
+          width: barW,
+          height: barH,
+          fill: d.color
+        })
+      );
+
+      g.appendChild(
+        createSvgEl(
+          "text",
+          {
+            x: left + barW + 6,
+            y: y + barH / 2 + 4,
+            "font-family": "Bodoni Moda, Georgia, serif",
+            "font-size": 12,
+            "font-weight": 700,
+            fill: "#181818"
+          },
+          d.count
+        )
+      );
+
+      g.addEventListener("mouseenter", function () {
+        if (!tooltip) return;
+        tooltip.innerHTML =
+          "<strong>" +
+          d.country +
+          ":</strong> " +
+          d.count +
+          (d.count === 1 ? " película nominada" : " películas nominadas") +
+          " como país de producción predominante.";
+      });
+
+      svg.appendChild(g);
+    });
+  }
+
+  renderChart2();
+
+  // =====================================================
+  // 1. Scroll-driven curtain opening (no button)
+  // =====================================================
+  const heroTrack = document.getElementById("inicio");
+  const curtainLeft = document.getElementById("curtainLeft");
+  const curtainRight = document.getElementById("curtainRight");
+  const heroTitleLayer = document.getElementById("heroTitleLayer");
+  const bajadaEl = document.getElementById("bajadaContent");
+  const spotlightEl = document.getElementById("stageSpotlight");
+  const scrollCueArrow = document.getElementById("scrollCueArrow");
+  const siteHeader = document.querySelector(".site-header");
+
+  function clamp(val, min, max) {
+    return Math.min(max, Math.max(min, val));
+  }
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function syncHeaderHeight() {
+    if (!siteHeader) return;
+    document.documentElement.style.setProperty("--header-h", siteHeader.offsetHeight + "px");
+  }
+
+  function updateCurtainOnScroll() {
+    if (!heroTrack || !curtainLeft || !curtainRight || !heroTitleLayer || !bajadaEl) return;
+
+    const headerH = siteHeader ? siteHeader.offsetHeight : 64;
+    const trackRect = heroTrack.getBoundingClientRect();
+    const stickyEl = heroTrack.querySelector(".hero-sticky-viewport");
+    const stickyH = stickyEl ? stickyEl.offsetHeight : Math.max(1, window.innerHeight - headerH);
+    const scrollableSpan = Math.max(1, heroTrack.offsetHeight - stickyH);
+    const scrolledPastStickyStart = Math.max(0, headerH - trackRect.top);
+    const progress = clamp(scrolledPastStickyStart / scrollableSpan, 0, 1);
+
+    // Curtain opens from 0 -> 0.72 of the sticky scroll span
+    const curtainRaw = clamp(progress / 0.72, 0, 1);
+    const curtainEase = easeInOutCubic(curtainRaw);
+    const shiftPct = curtainEase * 84;
+    const skewDeg = curtainEase * 3.2;
+
+    curtainLeft.style.transform = "translateX(-" + shiftPct.toFixed(2) + "%) skewX(-" + skewDeg.toFixed(2) + "deg)";
+    curtainRight.style.transform = "translateX(" + shiftPct.toFixed(2) + "%) skewX(" + skewDeg.toFixed(2) + "deg)";
+
+    // Title starts high at 26% (above the curtain ties at 52%), glides smoothly up to 18%
+    const titleRaw = clamp(progress / 0.48, 0, 1);
+    const titleEase = easeInOutCubic(titleRaw);
+    const titleTopPct = 26 - titleEase * 8; // 26% -> 18%
+    const titleScale = 1 - titleEase * 0.14; // 1.0 -> 0.86
+    heroTitleLayer.style.top = titleTopPct.toFixed(2) + "%";
+    heroTitleLayer.style.transform = "translate(-50%, -50%) scale(" + titleScale.toFixed(3) + ")";
+
+    // Bajada & spotlight fade in cleanly once curtains start parting
+    const bajadaRaw = clamp((progress - 0.25) / 0.45, 0, 1);
+    const bajadaEase = easeInOutCubic(bajadaRaw);
+    bajadaEl.style.opacity = bajadaEase.toFixed(3);
+    bajadaEl.style.transform = "translate(-50%, calc(-50% + " + ((1 - bajadaEase) * 24).toFixed(1) + "px))";
+
+    if (spotlightEl) {
+      spotlightEl.style.opacity = bajadaEase.toFixed(3);
+    }
+
+    if (scrollCueArrow) {
+      scrollCueArrow.style.opacity = clamp(1 - progress * 6, 0, 0.9).toFixed(3);
+    }
+  }
+
+  // =====================================================
+  // 2. 2026 Nominees Dataset (exact values from CSV)
+  // =====================================================
+  const NOMINEES_2026 = [
+    { nombre: "Michael B. Jordan", categoria: "Mejor actor", nacionalidad: "Estadounidense", ganador: true, pelicula: "Sinners" },
+    { nombre: "Timothée Chalamet", categoria: "Mejor actor", nacionalidad: "Estadounidense", ganador: false, pelicula: "Marty Supreme" },
+    { nombre: "Leonardo DiCaprio", categoria: "Mejor actor", nacionalidad: "Estadounidense", ganador: false, pelicula: "One Battle after Another" },
+    { nombre: "Ethan Hawke", categoria: "Mejor actor", nacionalidad: "Estadounidense", ganador: false, pelicula: "Blue Moon" },
+    { nombre: "Wagner Moura", categoria: "Mejor actor", nacionalidad: "Brasileña", ganador: false, pelicula: "The Secret Agent" },
+    { nombre: "Jessie Buckley", categoria: "Mejor actriz", nacionalidad: "Irlandesa", ganador: true, pelicula: "Hamnet" },
+    { nombre: "Rose Byrne", categoria: "Mejor actriz", nacionalidad: "Australiana", ganador: false, pelicula: "If I Had Legs I'd Kick You" },
+    { nombre: "Kate Hudson", categoria: "Mejor actriz", nacionalidad: "Estadounidense", ganador: false, pelicula: "Song Sung Blue" },
+    { nombre: "Renate Reinsve", categoria: "Mejor actriz", nacionalidad: "Noruega", ganador: false, pelicula: "Sentimental Value" },
+    { nombre: "Emma Stone", categoria: "Mejor actriz", nacionalidad: "Estadounidense", ganador: false, pelicula: "Bugonia" }
+  ];
+
+  const nomineesListEl = document.getElementById("nomineesList");
+  const filterBtns = document.querySelectorAll(".filter-btn");
+
+  function renderNominees(filter) {
+    if (!nomineesListEl) return;
+    const items =
+      filter === "all"
+        ? NOMINEES_2026
+        : NOMINEES_2026.filter(function (n) {
+            return n.categoria === filter;
+          });
+
+    nomineesListEl.innerHTML = items
+      .map(function (item, idx) {
+        const winnerLabel = item.ganador
+          ? '<span class="nominee-winner-mark">' +
+            (item.categoria === "Mejor actriz" ? "Ganadora" : "Ganador") +
+            "</span>"
+          : "";
+        return (
+          '<li class="nominee-item' +
+          (item.ganador ? " is-winner" : "") +
+          '">' +
+          '<span class="nominee-index">' +
+          (idx + 1) +
+          ".</span>" +
+          '<div class="nominee-main">' +
+          '<div class="nominee-top">' +
+          '<span class="nominee-name">' +
+          item.nombre +
+          "</span>" +
+          winnerLabel +
+          "</div>" +
+          '<span class="nominee-sub">' +
+          item.nacionalidad +
+          " · " +
+          item.categoria +
+          " · " +
+          item.pelicula +
+          "</span>" +
+          "</div>" +
+          "</li>"
+        );
+      })
+      .join("");
+  }
+
+  renderNominees("all");
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filterBtns.forEach(function (b) {
+        b.classList.remove("is-active");
+      });
+      btn.classList.add("is-active");
+      renderNominees(btn.dataset.filter || "all");
+    });
+  });
+
+  // =====================================================
+  // 3. Stick-figure Winner Spotlight Interaction
+  // =====================================================
+  const WINNER_NOTES = {
+    jessie:
+      '<strong>Jessie Buckley (Irlanda) — Ganadora 2026:</strong> Nacida en Killarney, Irlanda, obtuvo el Oscar a Mejor actriz por <em>Hamnet</em> (2025), película producida por <strong>Reino Unido, Estados Unidos</strong> e interpretada en <strong>Inglés</strong>.',
+    michael:
+      '<strong>Michael B. Jordan (Estados Unidos) — Ganador 2026:</strong> Nacido en Santa Ana, Estados Unidos, obtuvo el Oscar a Mejor actor por <em>Sinners</em> (2025), película producida por <strong>Estados Unidos</strong> e interpretada en <strong>Inglés</strong>.'
+  };
+
+  const stickCards = document.querySelectorAll(".stick-card");
+  const spotlightNoteEl = document.getElementById("winnerSpotlightNote");
+
+  stickCards.forEach(function (card) {
+    card.addEventListener("click", function () {
+      const key = card.dataset.winner;
+      stickCards.forEach(function (c) {
+        const active = c === card;
+        c.classList.toggle("is-selected", active);
+        c.setAttribute("aria-pressed", String(active));
+      });
+      if (spotlightNoteEl && WINNER_NOTES[key]) {
+        spotlightNoteEl.innerHTML = WINNER_NOTES[key];
+      }
+    });
+  });
+
+  // =====================================================
+  // 4. Podium Top 5 Interactive Detail
+  // =====================================================
+  const PODIUM_DETAILS = {
+    "Estados Unidos": { rank: "1°", count: 619, share: "77,8% del Top 5" },
+    "Reino Unido": { rank: "2°", count: 116, share: "14,6% del Top 5" },
+    Francia: { rank: "3°", count: 30, share: "3,8% del Top 5" },
+    Canadá: { rank: "4°", count: 18, share: "2,3% del Top 5" },
+    Italia: { rank: "5°", count: 13, share: "1,6% del Top 5" }
+  };
+
+  const podiumSteps = document.querySelectorAll(".podium-step");
+  const podiumDetailBar = document.getElementById("podiumDetailBar");
+
+  function showPodiumDetail(country) {
+    const info = PODIUM_DETAILS[country];
+    if (!info || !podiumDetailBar) return;
+    podiumDetailBar.innerHTML =
+      "<span><strong>" +
+      info.rank +
+      " " +
+      country +
+      ":</strong> " +
+      info.count +
+      " películas nominadas como país principal de producción.</span>" +
+      '<span style="color: var(--golden-bronze); font-variant-numeric: tabular-nums;">' +
+      info.share +
+      "</span>";
+  }
+
+  podiumSteps.forEach(function (step) {
+    step.addEventListener("click", function () {
+      showPodiumDetail(step.dataset.country);
+    });
+    step.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showPodiumDetail(step.dataset.country);
+      }
+    });
+  });
+
+  // =====================================================
+  // 5. Lightbox Modal for full-res SVG chart inspection
+  // =====================================================
+  const lightbox = document.getElementById("chartLightbox");
+  const lightboxMount = document.getElementById("lightboxSvgMount");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const zoomBtns = document.querySelectorAll("[data-zoom-svg]");
+
+  function openLightbox(svgId, caption) {
+    const sourceSvg = document.getElementById(svgId);
+    if (!lightbox || !lightboxMount || !lightboxCaption || !sourceSvg) return;
+    lightboxMount.innerHTML = "";
+    const cloned = sourceSvg.cloneNode(true);
+    cloned.removeAttribute("id");
+    cloned.style.width = "100%";
+    cloned.style.height = "auto";
+    lightboxMount.appendChild(cloned);
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add("is-open");
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove("is-open");
+  }
+
+  zoomBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      openLightbox(btn.dataset.zoomSvg, btn.dataset.zoomCaption || "");
+    });
+  });
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  // =====================================================
+  // 6. Reading progress bar
+  // =====================================================
+  const progressBar = document.getElementById("readingProgressBar");
+
+  function syncScroll() {
+    if (progressBar) {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) : 0;
+      progressBar.style.width = pct.toFixed(1) + "%";
+    }
+  }
+
+  let rafPending = false;
+  function onScrollOrResize() {
+    if (rafPending) return;
+    rafPending = true;
+    window.requestAnimationFrame(function () {
+      rafPending = false;
+      syncHeaderHeight();
+      updateCurtainOnScroll();
+      syncScroll();
+    });
+  }
+
+  window.addEventListener("scroll", onScrollOrResize, { passive: true });
+  window.addEventListener("resize", onScrollOrResize, { passive: true });
+  syncHeaderHeight();
+  updateCurtainOnScroll();
+  syncScroll();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+    </script>
+  </body>
+</html>
