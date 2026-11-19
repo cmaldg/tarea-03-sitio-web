@@ -231,11 +231,11 @@ button {
   will-change: opacity;
 }
 
-/* Title starts high at 26% (well above curtain ties at 52%) and glides smoothly to 18% */
+/* Title starts dead center at 50% and glides smoothly up to 22% on scroll */
 .hero-title-layer {
   position: absolute;
   left: 50%;
-  top: 26%;
+  top: 50%;
   width: min(90%, 920px);
   z-index: 30;
   text-align: center;
@@ -259,7 +259,7 @@ button {
 .bajada-wrapper {
   position: absolute;
   left: 50%;
-  top: 58%;
+  top: 60%;
   width: min(86%, 680px);
   z-index: 12;
   text-align: center;
@@ -337,44 +337,6 @@ button {
       #4c000b 78px
     );
   box-shadow: inset 18px 0 32px rgba(0, 0, 0, 0.6), -10px 0 28px rgba(0, 0, 0, 0.55);
-}
-
-.curtain-tie {
-  position: absolute;
-  top: 52%;
-  width: 72%;
-  height: 12px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #8e6910, var(--golden-bronze-soft), #8e6910);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
-}
-
-.curtain-left .curtain-tie {
-  left: 0;
-  transform: rotate(-11deg);
-}
-
-.curtain-right .curtain-tie {
-  right: 0;
-  transform: rotate(11deg);
-}
-
-.curtain-tassel {
-  position: absolute;
-  top: 51%;
-  width: 14px;
-  height: 44px;
-  border-radius: 4px 4px 8px 8px;
-  background: linear-gradient(180deg, var(--golden-bronze-soft), #8a630a);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-}
-
-.curtain-left .curtain-tassel {
-  left: 12px;
-}
-
-.curtain-right .curtain-tassel {
-  right: 12px;
 }
 
 /* =====================================================
@@ -1044,20 +1006,6 @@ button {
     <header class="site-header">
       <div class="header-inner">
         <a href="#inicio" class="brand-lockup">
-          <!-- Webstory Logo: Globe Clapperboard + Oscar Statuette (Brand Guide p.8) -->
-          <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
-            <g transform="rotate(-10 26 32)">
-              <rect x="6" y="20" width="38" height="28" rx="2" fill="#3a4c9a" stroke="#C69D22" stroke-width="2" />
-              <path d="M12 28 C18 23, 24 27, 29 34 C33 39, 27 45, 19 44 C13 42, 10 35, 12 28 Z" fill="#4fa86c" opacity="0.9" />
-              <path d="M6 12 L44 6 L46 14 L8 20 Z" fill="#2c3a7a" stroke="#C69D22" stroke-width="1.8" />
-              <line x1="15" y1="11" x2="17" y2="18" stroke="#F8EFD8" stroke-width="2" />
-              <line x1="27" y1="9" x2="29" y2="16" stroke="#F8EFD8" stroke-width="2" />
-              <line x1="38" y1="7" x2="40" y2="14" stroke="#F8EFD8" stroke-width="2" />
-            </g>
-            <circle cx="45" cy="14" r="4.5" fill="#C69D22" />
-            <path d="M39 21 C39 19, 51 19, 51 21 L49 34 L48 52 L42 52 L41 34 Z" fill="#C69D22" stroke="#181818" stroke-width="1.2" />
-            <rect x="38" y="52" width="14" height="5" rx="1.5" fill="#C69D22" stroke="#181818" stroke-width="1.2" />
-          </svg>
           <span>Oscar sin fronteras</span>
         </a>
 
@@ -1097,14 +1045,8 @@ button {
           </div>
 
           <!-- Scroll-driven Left & Right Velvet Curtains -->
-          <div id="curtainLeft" class="curtain-panel curtain-left" aria-hidden="true">
-            <div class="curtain-tie"></div>
-            <div class="curtain-tassel"></div>
-          </div>
-          <div id="curtainRight" class="curtain-panel curtain-right" aria-hidden="true">
-            <div class="curtain-tie"></div>
-            <div class="curtain-tassel"></div>
-          </div>
+          <div id="curtainLeft" class="curtain-panel curtain-left" aria-hidden="true"></div>
+          <div id="curtainRight" class="curtain-panel curtain-right" aria-hidden="true"></div>
 
           <!-- Minimalist scroll arrow icon (no button, no text) -->
           <div id="scrollCueArrow" class="scroll-cue-arrow" aria-hidden="true">
@@ -1807,11 +1749,11 @@ button {
     curtainLeft.style.transform = "translateX(-" + shiftPct.toFixed(2) + "%) skewX(-" + skewDeg.toFixed(2) + "deg)";
     curtainRight.style.transform = "translateX(" + shiftPct.toFixed(2) + "%) skewX(" + skewDeg.toFixed(2) + "deg)";
 
-    // Title starts high at 26% (above the curtain ties at 52%), glides smoothly up to 18%
+    // Title starts centered at 50%, glides smoothly up to 22% as curtains open
     const titleRaw = clamp(progress / 0.48, 0, 1);
     const titleEase = easeInOutCubic(titleRaw);
-    const titleTopPct = 26 - titleEase * 8; // 26% -> 18%
-    const titleScale = 1 - titleEase * 0.14; // 1.0 -> 0.86
+    const titleTopPct = 50 - titleEase * 28; // 50% -> 22%
+    const titleScale = 1 - titleEase * 0.16; // 1.0 -> 0.84
     heroTitleLayer.style.top = titleTopPct.toFixed(2) + "%";
     heroTitleLayer.style.transform = "translate(-50%, -50%) scale(" + titleScale.toFixed(3) + ")";
 
